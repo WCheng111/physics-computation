@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c386f056-46e6-4da2-b7dc-04b312d9aab7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +26,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/22545/anaconda3/envs/squremzm/python.exe",
+    "last_opened_file_path": "F:/Github repository/Condensed-matter-theory/python/iron vortex",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
@@ -37,7 +44,8 @@
       <option name="presentableId" value="Default" />
       <updated>1677765371576</updated>
       <workItem from="1677765372735" duration="51000" />
-      <workItem from="1677765532217" duration="111000" />
+      <workItem from="1677765532217" duration="1957000" />
+      <workItem from="1678174317147" duration="74000" />
     </task>
     <servers />
   </component>
