@@ -1,5 +1,5 @@
 import numpy
 import numpy as np
 
-e=np.array([[1, 2, 3], [1 ,2,3]])
-print(e)
+e=np.array([[1, 2, 3], [4 ,5,6]])
+print(e[0][1])

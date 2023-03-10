@@ -59,10 +59,10 @@ D2 = 0
 # soc = 2
 Break4m = 0
 Break4x = 0
-socm1 = np.array([[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0],
+socm1 = np.array([[-1, 0, 0, 0, 0, 0], [0, -1, 0, 0, 0, 0], [0, 0, -1, 0, 0, 0], [0, 0, 0, -1, 0, 0], [0, 0, 0, 0, 1, 0],
                   [0, 0, 0, 0, 0, 1]])
 
-def cal(ks1, soc):
+def cal1(ks1, soc):
     Eng=[]
     for i in range(len(ks1)):
         kx=ks1[i]
@@ -74,18 +74,72 @@ def cal(ks1, soc):
                  (2 * D1 * (1 - cos(kx)) - 2 * D1 * (1 - cos(ky))) * M[6][1] + D2 * sin(kx) * sin(ky) * M[6][2] + B1 * sin(
             kz) * M[2][3] + soc * socm1 \
                  +Break4x * sin(kz) * M[4][1]
-        eng,sta=np.linalg.eigh(H_TISM)
+        eng, sta=np.linalg.eigh(H_TISM)
         Eng.append(eng)
-        Engar=np.array(Eng)
+        Eng1=np.array(Eng)
+        Eng2=[]
+    for j in range(len(ks1)):
+        Eng2.append(Eng[j][0])
+    return np.array(Eng2)
 
-    return np.array(Eng)
+def cal2(ks1, soc):
+    Eng=[]
+    for i in range(len(ks1)):
+        kx=ks1[i]
+        ky=0
+        kz=0
+        H_TISM = (M00 + 2 * M01 * (1 - cos(kx)) + 2 * M01 * (1 - cos(ky)) + 2 * M02 * (1 - cos(kz))) * Dia_TISM + A1 * sin(
+            kx) * M[2][1] + \
+                 A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A2 * sin(ky) * M[4][3] + \
+                 (2 * D1 * (1 - cos(kx)) - 2 * D1 * (1 - cos(ky))) * M[6][1] + D2 * sin(kx) * sin(ky) * M[6][2] + B1 * sin(
+            kz) * M[2][3] + soc * socm1 \
+                 +Break4x * sin(kz) * M[4][1]
+        eng, sta=np.linalg.eigh(H_TISM)
+        Eng.append(eng)
+        Eng1=np.array(Eng)
+        Eng2=[]
+    for j in range(len(ks1)):
+        Eng2.append(Eng[j][3])
+    return np.array(Eng2)
+
+def cal3(ks1, soc):
+    Eng=[]
+    for i in range(len(ks1)):
+        kx=ks1[i]
+        ky=0
+        kz=0
+        H_TISM = (M00 + 2 * M01 * (1 - cos(kx)) + 2 * M01 * (1 - cos(ky)) + 2 * M02 * (1 - cos(kz))) * Dia_TISM + A1 * sin(
+            kx) * M[2][1] + \
+                 A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A2 * sin(ky) * M[4][3] + \
+                 (2 * D1 * (1 - cos(kx)) - 2 * D1 * (1 - cos(ky))) * M[6][1] + D2 * sin(kx) * sin(ky) * M[6][2] + B1 * sin(
+            kz) * M[2][3] + soc * socm1 \
+                 +Break4x * sin(kz) * M[4][1]
+        eng, sta=np.linalg.eigh(H_TISM)
+        Eng.append(eng)
+        Eng1=np.array(Eng)
+        Eng2=[]
+    for j in range(len(ks1)):
+        Eng2.append(Eng[j][5])
+    return np.array(Eng2)
+
+
+
+
+
+
+
+
+
+
 ks = np.linspace(-1, 1, 201) * pi
 # print(cal(ks, 2)[])
-int_soc = 2
+int_soc = 0
 
 
 fig, ax = plt.subplots()
-ax.plot(ks, cal(ks, int_soc))
+line1, =ax.plot(ks, cal1(ks, int_soc), color='dodgerblue')
+line2, =ax.plot(ks, cal2(ks, int_soc), color='darkorange')
+line3, =ax.plot(ks, cal3(ks, int_soc),color='limegreen')
 ax.set_xlabel('ks')
 
 
@@ -95,17 +149,19 @@ fig.subplots_adjust(left=0.25, bottom=0.25)
 axsoc = fig.add_axes([0.25, 0.1, 0.65, 0.03])
 soc_slider = Slider(
     ax=axsoc,
-    label='Frequency [Hz]',
-    valmin=0,
+    label='soc',
+    valmin=-5,
     valmax=5,
     valinit=int_soc,
 )
 
 
 def update(val):
-    ax.plot(ks, cal(ks, soc_slider.val))
-    # line.set_ydata(cal(ks, freq_slider.val))
-    fig.canvas.draw_idle()
+     line1.set_ydata(cal1(ks, soc_slider.val))
+     line2.set_ydata(cal2(ks, soc_slider.val))
+     line3.set_ydata(cal3(ks, soc_slider.val))
+     fig.canvas.draw_idle()
+
 
 soc_slider.on_changed(update)
 
@@ -115,7 +171,7 @@ button = Button(resetax, 'Reset', hovercolor='0.975')
 
 
 def reset(event):
-    freq_slider.reset()
+    soc_slider.reset()
 button.on_clicked(reset)
 
 plt.show()
