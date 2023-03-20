@@ -42,11 +42,25 @@
 \usepackage{setspace}
 \usepackage{tabularcalc}
 \usepackage{booktabs}
+\usepackage[citecolor=red]{hyperref}%用于插入链接
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=red,      
+	urlcolor=blue,
+	citecolor=red
+}%插入链接的性质
+\usepackage{ragged2e}
 
 
 
 
 \renewcommand{\abstractname}{\Large Abstract}
+\renewcommand\refname{\LARGE Reference}
+
+
+
+
 \definecolor{mygreen}{rgb}{0.8,1,0.73}
 \definecolor{linegreencolor}{rgb}{0,0.4,0}
 \definecolor{myblue}{rgb}{0.22,0.73,0.91}
@@ -63,7 +77,7 @@
 
 \renewcommand*\contentsname{\hfill \LARGE{Content} \hfill}
 
-
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 \begin{document}
 	\maketitle
 	\Large
@@ -75,7 +89,24 @@
 	\end{abstract}
 \section{$k\cdot p$ construct Hamiliton}
 The space group of iron-based superconductor is P4/nmm,it include the frational translate,so it can't can be seen the the direct product of the translate group and the point group.But along the $\Gamma-Z$,it can be seen the $D4h$ group。At the same time,we can know the band near the fermi surface of the iron-based superconductor are $p_z,d_{xz},d_{yz}$ orbit.So we can choose the basics $\ket{p_z,\uparrow},\ket{p_z,\downarrow},\ket{d_{xz+iyz},\downarrow},\\
-\ket{d_{xz-iyz},\uparrow},\ket{d_{xz+iyz},\uparrow},\ket{d_{xz-iyz},\downarrow}$ to construct our Hamiliton.For any $6\cdot 6$matrix,we can break down to the linear superposition of 36 basics matrix.
+\ket{d_{xz-iyz},\uparrow},\ket{d_{xz+iyz},\uparrow},\ket{d_{xz-iyz},\downarrow}$ to construct our Hamiliton.
+The structure of the iron-based superconductor and the band structure as follows.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{figure/3}
+	\caption{\cite{胡江平铁基}}
+	\label{}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.6]{figure/4}
+	\caption{\cite{zhang2019multiple}}
+	\label{}
+\end{figure}
+
+
+For any $6\cdot 6$matrix,we can break down to the linear superposition of 36 basics matrix.
 \begin{align}
 	H(\vec{k})=\sum_{ij}f_{ij}(\vec{k})M_{ij}
 \end{align}
@@ -91,7 +122,14 @@ At the same time,because we need to consider the spin orbit coupling,so we neend
 	\caption{}
 	\label{}
 \end{figure}
-We can get the generator of D4h group is $C_{4z},C_{2x}^{'},Inversion$.At the same time,the system has the time reversal symmetry.We can get the transformation matrix in the basics before we mentioned.
+We can get the generator of D4h group is $C_{4z},C_{2x}^{'},Inversion$.At the same time,the system has the time reversal symmetry.We can get the transformation matrix in the basics before we mentioned.So we can get the Hamiliton for the iron-based superconductor.
+\begin{align}
+	\nonumber
+	H&=M_1(k)M_{30}+M_2(k)M_{80}+A_1k_xM_{21}+A_1k_yM_{22}+A_2k_xM_{50}+A_2k_yM_{43}
+	\\
+	\nonumber  &\qquad +B_1k_zM_{23}+C_1k_xk_zM_{63}-C_1k_yk_zM_{70}+D_1(k_x^2-k_y^2)M_{61}+D_2k_xk_yM_{62}
+\end{align}
+
 \begin{normalsize}
 \begin{align}
 	C_{4z}=
@@ -152,8 +190,21 @@ of the momentum k
 		$k_z$&$\Gamma_2^{-}$&-
 	\end{tabular}
 \end{align}
-we can get the character table of $M_{ij}$,Then we can multiple the same representation of the k polynomials and the $M_{ij}$ matrix.
-
+we can get the character table of $M_{ij}$,Then we can multiple the same representation of the k polynomials and the $M_{ij}$ matrix.So we can get the Hamiliton of the iron-based superconductor.
+\begin{align}
+	\nonumber
+	H&=M_1(k)M_{30}+M_2(k)M_{80}+A_1k_xM_{21}+A_1k_yM_{22}+A_2k_xM_{50}+A_2k_yM_{43}
+	\\
+	\nonumber  &\qquad +B_1k_zM_{23}+C_1k_xk_zM_{63}-C_1k_yk_zM_{70}+D_1(k_x^2-k_y^2)M_{61}+D_2k_xk_yM_{62}\\
+	&=	\begin{pmatrix}
+		M_1(k)      &     0        &   -iB_1k_z        &   -iA_1k_{-}     &   -iA_2k_{+}    &0\\
+		0  &     M_1(k)      &  -iA_1k_{+}    &   iB_1k_z       &     0     & -iA_2k_{-}\\
+		iB_1k_z    &   iA_1k_{-}      &    -M_1(k)        & 0     &   C_1kzk_{+} &D(k_x,k_y)\\
+		iA_1k_{+}    &   -iB_1k_z    &   0  &   -M_1(k)    & D(k_x,k_y)^{*} &C_1k_zk_{-}\\
+		iA_2k_{-}  &        0    &    C_1k_zk_{-}    &    D(k_x,k_y)      &      -M_1(k)+\delta_{so}      &0\\
+		0&      iA_2k_{+}      &   D(k_x,k_y)^{*}    &   C_1k_zk_{+}       &    0      & -M_1(k)+\delta_{so} \\
+	\end{pmatrix}
+\end{align}	
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.8]{figure/2}
@@ -165,9 +216,10 @@ we can get the character table of $M_{ij}$,Then we can multiple the same represe
 
 
 \section{Vortex Phase Transition}
+As we were know,when the $\delta_{so}$ is very big,the three band can be seen the independent of the TI and DSM.At this time,the topological vortex phase transition can be seen the independent of TI and DSM use the Berry phase crition by Vishwanath.\cite{PhysRevLett.107.097001}.But when the $\delta_{so}$ become very small,the situation become complex.
 
 
 
-
-
+\bibliographystyle{IEEEtran}
+\bibliography{vortex.bib}
 \end{document}

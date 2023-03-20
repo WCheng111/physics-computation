@@ -4,10 +4,13 @@
 \catcode 95\active
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -15,11 +18,23 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{胡江平铁基}
 \@writefile{toc}{\contentsline {section}{\numberline {1}$k\cdot p$ construct Hamiliton}{1}{section.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces }}{2}{figure.1}\protected@file@percent }
-\newlabel{}{{1}{2}{}{figure.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces }}{4}{figure.2}\protected@file@percent }
-\newlabel{}{{2}{4}{}{figure.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Vortex Phase Transition}{4}{section.2}\protected@file@percent }
+\citation{zhang2019multiple}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \cite  {胡江平铁基}}}{2}{figure.1}\protected@file@percent }
+\newlabel{}{{1}{2}{\cite {胡江平铁基}}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \cite  {zhang2019multiple}}}{2}{figure.2}\protected@file@percent }
+\newlabel{}{{2}{2}{\cite {zhang2019multiple}}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces }}{3}{figure.3}\protected@file@percent }
+\newlabel{}{{3}{3}{}{figure.3}{}}
+\citation{PhysRevLett.107.097001}
+\bibstyle{IEEEtran}
+\bibdata{vortex.bib}
+\bibcite{胡江平铁基}{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces }}{5}{figure.4}\protected@file@percent }
+\newlabel{}{{4}{5}{}{figure.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Vortex Phase Transition}{5}{section.2}\protected@file@percent }
+\bibcite{zhang2019multiple}{2}
+\bibcite{PhysRevLett.107.097001}{3}
 \ttl@finishall
-\gdef \@abspage@last{4}
+\gdef \@abspage@last{6}
