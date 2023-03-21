@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.8.30)  21 MAR 2023 16:40
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.8.30)  21 MAR 2023 22:30
  restricted system commands enabled.
 **vortex.tex
 (./vortex.tex
@@ -1818,6 +1818,9 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = vortex.aux
 
@@ -2103,7 +2106,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 90.
 
-<figure/3.png, id=22, 582.37575pt x 251.13824pt>
+<figure/3.png, id=27, 582.37575pt x 251.13824pt>
 File: figure/3.png Graphic file (type png)
 <use figure/3.png>
 Package luatex.def Info: figure/3.png  used on input line 96.
@@ -2117,12 +2120,12 @@ nmm,it in-clude the frational
 [1
 
 {c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<figure/4.png, id=39, 711.25725pt x 166.82326pt>
+<figure/4.png, id=44, 711.25725pt x 166.82326pt>
 File: figure/4.png Graphic file (type png)
 <use figure/4.png>
 Package luatex.def Info: figure/4.png  used on input line 103.
 (luatex.def)             Requested size: 426.75764pt x 100.09471pt.
-<figure/1.jpg, id=41, 571.24052pt x 476.67447pt>
+<figure/1.jpg, id=46, 571.24052pt x 476.67447pt>
 File: figure/1.jpg Graphic file (type jpg)
 <use figure/1.jpg>
 Package luatex.def Info: figure/1.jpg  used on input line 121.
@@ -2176,58 +2179,95 @@ LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
 (Font)              scaled to size 4.80003pt on input line 134.
  [3
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.3'
-<./figure/1.jpg>]
-<figure/2.png, id=60, 320.69812pt x 588.69937pt>
+<./figure/1.jpg>] [4]
+<figure/2.png, id=70, 320.69812pt x 588.69937pt>
 File: figure/2.png Graphic file (type png)
 <use figure/2.png>
 Package luatex.def Info: figure/2.png  used on input line 210.
 (luatex.def)             Requested size: 256.55884pt x 470.96013pt.
- [4] [5
+ [5] [6
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.4'
 <./figure/2.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 224.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 224.
+<figure/5.png, id=85, 972.63374pt x 492.33937pt>
+File: figure/5.png Graphic file (type png)
+<use figure/5.png>
+Package luatex.def Info: figure/5.png  used on input line 226.
+(luatex.def)             Requested size: 486.31567pt x 246.16907pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\usc@dischyph' on input line 224.
+(hyperref)                removing `math shift' on input line 232.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 224.
+(hyperref)                removing `\delta' on input line 232.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\infty' on input line 224.
+(hyperref)                removing `\usc@dischyph' on input line 232.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 224.
+(hyperref)                removing `\rightarrow' on input line 232.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 224.
+(hyperref)                removing `\infty' on input line 232.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\usc@dischyph' on input line 224.
+(hyperref)                removing `math shift' on input line 232.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 224.
+(hyperref)                removing `math shift' on input line 232.
 
-[6] (./vortex.bbl
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\usc@dischyph' on input line 232.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 232.
+
+[7
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.5'
+<./figure/5.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 238.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delta' on input line 238.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\usc@dischyph' on input line 238.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 238.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 238.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\usc@dischyph' on input line 238.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 238.
+
+[8] (./vortex.bbl
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
 (Font)              scaled to size 14.45409pt on input line 26.
 luaotfload | aux : font no 207 (nil) does not define feature vert for script dfl
 t with language dflt
 luaotfload | aux : font no 207 (nil) does not define feature vrt2 for script dfl
-t with language dflt) [7] (./vortex.aux)
+t with language dflt) [9] (./vortex.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -2235,19 +2275,19 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `vortex.out' has not changed.
-(rerunfilecheck)             Checksum: FDFA5A33F049456BA2C457502D4FF342;508.
+(rerunfilecheck)             Checksum: 3A1944A9E70F6C1F969A86E52BC15737;809.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48801 strings out of 477457
- 156267,1648299 words of node,token memory allocated
+ 48825 strings out of 477457
+ 195333,1648299 words of node,token memory allocated
  1990 words of node memory still in use:
    8 hlist, 2 vlist, 2 rule, 2 glue, 15 kern, 1 glyph, 589 attribute, 86 glue_sp
 ec, 33 attribute_list, 2 write, 10 user_defined nodes
-   avail lists: 2:45518,3:202,4:468,5:209,6:38,7:4267,8:78,9:1025,10:9,11:252
- 67535 multiletter control sequences out of 65536+600000
+   avail lists: 2:60721,3:222,4:561,5:199,6:42,7:4770,8:79,9:1155,10:9,11:295
+ 67546 multiletter control sequences out of 65536+600000
  207 fonts using 79277619 bytes
- 88i,15n,92p,1025b,442s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,15n,92p,1025b,446s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/sims
 un.ttc>{c:/texlive/2022/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}<c:/texlive/
 2022/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><c:/texlive/2022/texmf-d
@@ -2259,10 +2299,10 @@ sign/mdbch/md-chr7v.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/mathdesig
 n/mdbch/md-chr7y.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/mathdesign/m
 dbch/md-chr8t.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/mathdesign/mdbc
 h/md-chri7m.pfb>
-Output written on vortex.pdf (7 pages, 491454 bytes).
+Output written on vortex.pdf (9 pages, 596271 bytes).
 
-PDF statistics: 140 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 131072)
- 40 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 156 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 131072)
+ 48 words of extra memory for PDF output out of 10000 (max. 100000000)
 
