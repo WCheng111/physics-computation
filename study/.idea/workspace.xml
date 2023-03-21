@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd38ad83-a088-46a4-915a-26228a14f912" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iron vortex/vortex.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../iron vortex/vortex.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iron vortex/vortex.bbl" beforeDir="false" afterPath="$PROJECT_DIR$/../iron vortex/vortex.bbl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iron vortex/vortex.blg" beforeDir="false" afterPath="$PROJECT_DIR$/../iron vortex/vortex.blg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iron vortex/vortex.log" beforeDir="false" afterPath="$PROJECT_DIR$/../iron vortex/vortex.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iron vortex/vortex.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../iron vortex/vortex.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iron vortex/vortex.pytxcode" beforeDir="false" afterPath="$PROJECT_DIR$/../iron vortex/vortex.pytxcode" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iron vortex/vortex.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../iron vortex/vortex.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iron vortex/vortex.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../iron vortex/vortex.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iron vortex/vortex.toc" beforeDir="false" afterPath="$PROJECT_DIR$/../iron vortex/vortex.toc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1678884807360</updated>
       <workItem from="1678884808711" duration="1280000" />
-      <workItem from="1679280665597" duration="2394000" />
+      <workItem from="1679280665597" duration="2397000" />
     </task>
     <servers />
   </component>
