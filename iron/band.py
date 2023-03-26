@@ -131,47 +131,54 @@ def cal3(ks1, soc):
 
 
 
-ks = np.linspace(-1, 1, 201) * pi
+kx = np.linspace(-1, 1, 201) * pi
 # print(cal(ks, 2)[])
 int_soc = 0
-
+m=[]
+for i in range(len(kx)):
+    m.append(0)
 
 fig, ax = plt.subplots()
-line1, =ax.plot(ks, cal1(ks, int_soc), color='dodgerblue')
-line2, =ax.plot(ks, cal2(ks, int_soc), color='darkorange')
-line3, =ax.plot(ks, cal3(ks, int_soc),color='limegreen')
-ax.set_xlabel('ks')
+plt.xlim(-2.1,2.1)
+plt.ylim(-1.5,1.5)
+plt.xlabel('kx')
+plt.ylabel('E')
+line1, =ax.plot(kx, cal1(kx, int_soc), color='dodgerblue', linewidth=4.0)
+line2, =ax.plot(kx, cal2(kx, int_soc), color='red',linewidth=4.0)
+line3, =ax.plot(kx, cal3(kx, int_soc),color='dodgerblue',linewidth=4.0)
+line4, =ax.plot(kx, m, color='black',linewidth=3.0,linestyle='--')
+ax.set_xlabel('kx')
 
 
-fig.subplots_adjust(left=0.25, bottom=0.25)
-
-
-axsoc = fig.add_axes([0.25, 0.1, 0.65, 0.03])
-soc_slider = Slider(
-    ax=axsoc,
-    label='soc',
-    valmin=-5,
-    valmax=5,
-    valinit=int_soc,
-)
-
-
-def update(val):
-     line1.set_ydata(cal1(ks, soc_slider.val))
-     line2.set_ydata(cal2(ks, soc_slider.val))
-     line3.set_ydata(cal3(ks, soc_slider.val))
-     fig.canvas.draw_idle()
-
-
-soc_slider.on_changed(update)
-
-
-resetax = fig.add_axes([0.8, 0.025, 0.1, 0.04])
-button = Button(resetax, 'Reset', hovercolor='0.975')
-
-
-def reset(event):
-    soc_slider.reset()
-button.on_clicked(reset)
+# fig.subplots_adjust(left=0.25, bottom=0.25)
+#
+#
+# axsoc = fig.add_axes([0.25, 0.1, 0.65, 0.03])
+# soc_slider = Slider(
+#     ax=axsoc,
+#     label='soc',
+#     valmin=-5,
+#     valmax=5,
+#     valinit=int_soc,
+# )
+#
+#
+# def update(val):
+#      line1.set_ydata(cal1(ks, soc_slider.val))
+#      line2.set_ydata(cal2(ks, soc_slider.val))
+#      line3.set_ydata(cal3(ks, soc_slider.val))
+#      fig.canvas.draw_idle()
+#
+#
+# soc_slider.on_changed(update)
+#
+#
+# resetax = fig.add_axes([0.8, 0.025, 0.1, 0.04])
+# button = Button(resetax, 'Reset', hovercolor='0.975')
+#
+#
+# def reset(event):
+#     soc_slider.reset()
+# button.on_clicked(reset)
 
 plt.show()
