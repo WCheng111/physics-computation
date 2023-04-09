@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c386f056-46e6-4da2-b7dc-04b312d9aab7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/iron/chiral symmetry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/physics-computation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/physics-computation.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BHZ model/bernevig.som.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/BHZ model/bernevig.som.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kagome/structure.py" beforeDir="false" afterPath="$PROJECT_DIR$/kagome/structure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
