@@ -73,7 +73,7 @@ def main():
     # pyplot.xlabel("momentum [(lattice constant)^-1]")
     # pyplot.ylabel("energy [t]")
     # pyplot.show()
-    
+
     lead0 = lead0.finalized()
     momenta = [-pi + 0.02 * pi * i for i in range(101)]
     plot_bandstructure(lead0, momenta)
