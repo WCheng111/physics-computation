@@ -46,7 +46,7 @@ def cal1(ks1):
     return Eng
 
 def cal3d(ks1):
-    Eng=[]
+     Eng=np.zeros((len(ks1),len(ks1),2))
      for i in range(len(ks1)):
         for j in range(len(ks1)):
             kx=ks1[i]
@@ -56,18 +56,18 @@ def cal3d(ks1):
             k3 = -kx / 2 + (sqrt(3) / 2) * ky
             H_kagome =mu*G[0]-2*t*cos(k1/2)*G[1]-2*t*cos(k2/2)*G[4]-2*t*cos(k3/2)*G[6]
             eng, sta=np.linalg.eigh(H_kagome)
-            Eng[i,j,:]=eng
+            Eng[i,j]=eng
      return Eng
 
 kx = np.linspace(-1, 1, 201) * pi
 ky=np.linspace(-1, 1, 201) * pi
-kx,ky=meshgrid(kx,ky)
+KX, KY = np.meshgrid(kx, ky)
 # print(cal(ks, 2)[])
 # m=[]
 # for i in range(len(kx)):
 #     m.append(0)
 
-plt.plot(kx, cal1(kx), color='dodgerblue', linewidth=1.0)
+plt.plot(kx, cal1(kx)[:,:], color='dodgerblue', linewidth=1.0)
 # plt.xlim(-2.1,2.1)
 # plt.ylim(-1.5,1.5)
 plt.xlabel('kx')
