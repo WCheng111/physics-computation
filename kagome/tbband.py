@@ -46,7 +46,7 @@ def cal1(ks1):
     return Eng
 
 def cal3d(ks1):
-     Eng=[[0 for i in range(len(ks1))] for j in range(len(ks1))]
+    Eng=[]
      for i in range(len(ks1)):
         for j in range(len(ks1)):
             kx=ks1[i]
@@ -56,11 +56,12 @@ def cal3d(ks1):
             k3 = -kx / 2 + (sqrt(3) / 2) * ky
             H_kagome =mu*G[0]-2*t*cos(k1/2)*G[1]-2*t*cos(k2/2)*G[4]-2*t*cos(k3/2)*G[6]
             eng, sta=np.linalg.eigh(H_kagome)
-            Eng[i][j]=eng
-     Eng1=np.array(Eng)
-     return Eng1
+            Eng[i,j,:]=eng
+     return Eng
 
 kx = np.linspace(-1, 1, 201) * pi
+ky=np.linspace(-1, 1, 201) * pi
+kx,ky=meshgrid(kx,ky)
 # print(cal(ks, 2)[])
 # m=[]
 # for i in range(len(kx)):
