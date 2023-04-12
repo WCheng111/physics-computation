@@ -52,6 +52,7 @@ M01 = 1
 M02 = 1
 A1 = 0.5
 A2 =0.5
+A3=0
 B1 =0
 C1 = 0
 D1 = 0
@@ -65,12 +66,12 @@ socm1 = np.array([[-1, 0, 0, 0, 0, 0], [0, -1, 0, 0, 0, 0], [0, 0, -1, 0, 0, 0],
 def cal1(ks1, soc):
     Eng=[]
     for i in range(len(ks1)):
-        kx=ks1[i]
-        ky=0
+        kx=0
+        ky=ks1[i]
         kz=0
         H_TISM = (M00 + 2 * M01 * (1 - cos(kx)) + 2 * M01 * (1 - cos(ky)) + 2 * M02 * (1 - cos(kz))) * Dia_TISM + A1 * sin(
             kx) * M[2][1] + \
-                 A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A2 * sin(ky) * M[4][3] + \
+                 A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A3 * sin(ky) * M[4][3] + \
                  (2 * D1 * (1 - cos(kx)) - 2 * D1 * (1 - cos(ky))) * M[6][1] + D2 * sin(kx) * sin(ky) * M[6][2] + B1 * sin(
             kz) * M[2][3] + soc * socm1 \
                  +Break4x * sin(kz) * M[4][1]
@@ -85,12 +86,12 @@ def cal1(ks1, soc):
 def cal2(ks1, soc):
     Eng=[]
     for i in range(len(ks1)):
-        kx=ks1[i]
-        ky=0
+        kx=0
+        ky=ks1[i]
         kz=0
         H_TISM = (M00 + 2 * M01 * (1 - cos(kx)) + 2 * M01 * (1 - cos(ky)) + 2 * M02 * (1 - cos(kz))) * Dia_TISM + A1 * sin(
             kx) * M[2][1] + \
-                 A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A2 * sin(ky) * M[4][3] + \
+                 A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A3 * sin(ky) * M[4][3] + \
                  (2 * D1 * (1 - cos(kx)) - 2 * D1 * (1 - cos(ky))) * M[6][1] + D2 * sin(kx) * sin(ky) * M[6][2] + B1 * sin(
             kz) * M[2][3] + soc * socm1 \
                  +Break4x * sin(kz) * M[4][1]
@@ -105,12 +106,12 @@ def cal2(ks1, soc):
 def cal3(ks1, soc):
     Eng=[]
     for i in range(len(ks1)):
-        kx=ks1[i]
-        ky=0
+        kx=0
+        ky=ks1[i]
         kz=0
         H_TISM = (M00 + 2 * M01 * (1 - cos(kx)) + 2 * M01 * (1 - cos(ky)) + 2 * M02 * (1 - cos(kz))) * Dia_TISM + A1 * sin(
             kx) * M[2][1] + \
-                 A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A2 * sin(ky) * M[4][3] + \
+                 A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A3 * sin(ky) * M[4][3] + \
                  (2 * D1 * (1 - cos(kx)) - 2 * D1 * (1 - cos(ky))) * M[6][1] + D2 * sin(kx) * sin(ky) * M[6][2] + B1 * sin(
             kz) * M[2][3] + soc * socm1 \
                  +Break4x * sin(kz) * M[4][1]
