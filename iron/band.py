@@ -129,9 +129,6 @@ def cal3(ks1, soc):
 
 
 
-
-
-
 kx = np.linspace(-1, 1, 201) * pi
 # print(cal(ks, 2)[])
 int_soc = 0
