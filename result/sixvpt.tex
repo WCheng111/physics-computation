@@ -1,0 +1,357 @@
+% !TeX spellcheck = de_DE
+\documentclass[22pt]{article}
+\title{\Huge {\vspace{-2cm}Six-band}}
+\author{\LARGE {Wei Cheng}}
+\date{}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage[UTF8]{ctex}%用于识别中文
+\usepackage{underscore}%可以用来正确识别_
+\usepackage{graphicx}%用于插入图片
+\usepackage{color}
+\usepackage{geometry}
+\usepackage{braket}
+\usepackage{listing}
+\geometry{a4paper,scale=0.9}
+\usepackage{hyperref}%用于插入链接
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+}%插入链接的性质
+\usepackage{pythontex}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{framed}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{abstract}
+\usepackage{float}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\renewcommand{\abstractname}{\LARGE Abstract}
+\usepackage{titlesec}
+\definecolor{mygreen}{rgb}{0.8,1,0.73}
+\definecolor{linegreencolor}{rgb}{0,0.4,0}
+\definecolor{myblue}{rgb}{0.22,0.73,0.91}
+
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\LARGE\bfseries}
+\titleformat*{\subsubsection}{\LARGE\bfseries}
+
+
+\newenvironment{greenbox}{%
+	\def\FrameCommand{%
+		\hspace{1pt}%
+		{\color{linegreencolor}\vrule width 2pt}%
+		{\color{mygreen}\vrule width 4pt}%
+		\colorbox{mygreen}%
+	}%
+	\MakeFramed{\advance\hsize-\width\FrameRestore}%
+	\noindent\hspace{-4.55pt}% disable indenting first paragraph
+	\begin{adjustwidth}{}{7pt}%
+		\vspace{2pt}\vspace{2pt}%
+	}
+	{%
+		\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+\newenvironment{bluebox}{%
+	\def\FrameCommand{%
+		\hspace{1pt}%
+		{\color{myblue}\vrule width 2pt}%
+		{\color{myblue}\vrule width 4pt}%
+		\colorbox{myblue}%
+	}%
+	\MakeFramed{\advance\hsize-\width\FrameRestore}%
+	\noindent\hspace{-4.55pt}% disable indenting first paragraph
+	\begin{adjustwidth}{}{7pt}%
+		\vspace{2pt}\vspace{2pt}%
+	}
+	{%
+		\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\colum\left( nwidth}
+	\import{./images/}{#1.pdf_tex}
+}
+
+
+
+
+
+
+\begin{document}
+	\Large
+	\maketitle
+	In the basics $\ket{p_z,\uparrow},\ket{p_z,\downarrow},\ket{d_{xz+iyz},\downarrow},\ket{d_{xz-iyz},\uparrow},\ket{d_{xz+iyz},\uparrow},\ket{d_{xz-iyz,\downarrow}}$，考虑$k_z=0$
+	\begin{align}
+		H=
+		\begin{pmatrix}
+			M(k) &0&0 &-iA_1k_{-} &-iA_2k_{+}&0\\
+			0&M(k)&-iA_1k_{+}&0&0&-iA_2k_{-}\\
+			0&iA_1_{_}&-M(k)&0&0&0\\
+			iA_1k_{+}&0&0&-M(k)&0&0\\
+			iA_2k_{-}&0&0&0&-M(k)+\delta&0\\
+			0&iA_2k_{+}&0&0&0&-M(k)+\delta
+		\end{pmatrix}
+	\end{align}
+	做一个基矢变换
+	\begin{align}
+		U=
+		\begin{pmatrix}
+			1&0&0&0&0&0\\
+			0&0&0&1&0&0\\
+			0&0&0&0&1&0\\
+			0&1&0&0&0&0\\
+			0&0&1&0&0&0\\
+			0&0&0&0&0&1\\
+		\end{pmatrix}
+	\end{align}
+	可以得到
+	\begin{align}
+		H^{'}=
+		\begin{pmatrix}
+			M(k)&-iA_1k_{-}&-iA_2k_{+}&&&\\
+			iA_1k_{+}&-M(k)&0&&&\\
+			iA_2k_{-}&0&-M(k)+\delta&&&\\
+			&&&M(k)&-iA_1K_{+}&0\\
+			&&&iA_1k_{-}&-M(k)&0\\
+			&&&iA_2k_{+}&0&-M(k)+\delta
+		\end{pmatrix}
+	\end{align}
+	先考虑其中一个块的内容，其能量本征值满足
+	\begin{normalsize}
+		\begin{align}
+			E^3+(M(k)-\delta)E^2-[M(k)^2+A_1^2k^2+A_2^2k^2]E-M(k)^3+\delta M(k)^2-M(k)[A_1k^2+A_2^2k^2]+\delta A_1^2k^2=0
+		\end{align}
+	\end{normalsize}
+考虑$\delta=0$的情况，可以解得
+\begin{align}
+	E_1=-M(k) \qquad E_2=-\sqrt{M(k)^2+2A^2k^2}=-E\qquad 
+	E_3=\sqrt{M(k)^2+2A^2k^2}
+	=E
+\end{align}
+三个本征态为
+\begin{align}
+	\ket{\psi_{1}}_e=\frac{1}{\sqrt{2}}
+	\begin{pmatrix}
+		0\\
+		-e^{2i\theta}\\
+		1
+	\end{pmatrix}
+\quad
+\ket{\psi_{2}}_e=\frac{1}{a}
+\begin{pmatrix}
+	i(-M(k)+E)e^{i\theta}\\
+	Ake^{2i\theta}\\
+	Ak
+\end{pmatrix}
+\quad
+\ket{\psi_{3}}_e=
+\frac{1}{b}
+\begin{pmatrix}
+	-i(M(k)+E)e^{i\theta}\\
+	Ake^{2i\theta}\\
+	Ak
+\end{pmatrix}
+\end{align}
+在basics$\ket{p_z,\uparrow}_e,\ket{d_{xz-iyz},\uparrow}_e,\ket{d_{xz+iyz},\uparrow}_e,\ket{p_z,\downarrow}_h,\ket{d_{xz+iyz},\downarrow}_h,\ket{d_{xz-iyz},\downarrow}_h$中，可以写出考虑Vortex的BdG哈密顿量为
+\begin{align}
+	H_{BdG}=
+	\begin{pmatrix}
+			M(k)-\mu& -iAk_{-}&-iAk_{+} &\Delta&0&0\\
+			iAk_{+}&-M(k)-\mu&0&0&\Delta&0\\
+			iAk_{-}&0&-M(k)-\mu&0&0&\Delta\\
+			\Delta^{\dagger}&0&0&\mu-M(k)&iAk_{-}&iAk_{+}\\
+			0&\Delta^{\dagger}&0&-iAk_{+}&\mu+M(k)&0\\
+			0&0&\Delta^{\dagger}&-iAk_{-}&0&\mu+M(k)
+	\end{pmatrix}
+\end{align}
+将其变换到H的本征函数空间可以得到
+\begin{align}
+	\begin{pmatrix}
+		E_1-\mu &0&0& \Delta_{11}&\Delta_{12}&\Delta_{13}\\
+		0&E_2-\mu&0&\Delta_{21}&\Delta_{22}&0\\
+		0&0&E_3-\mu&\Delta_{31}&0&\Delta_{33}\\
+		\Delta_{11}^{\dagger}&\Delta_{12}^{\dagger}&\Delta_{13}^{\dagger}&\mu-E_1&0&0\\
+		\Delta_{21}^{\dagger}&\Delta_{22}^{\dagger}&0&0&\mu-E_2&0\\
+		\Delta_{31}^{\dagger}&0&\Delta_{33}^{\dagger}&0&0&\mu-E_3
+	\end{pmatrix}
+\end{align}
+	其中$\Delta_{ii}=i\Delta_ee^{-i\theta}(\partial_k-\frac{i\partial_{\theta}+A_{\theta}^{11}}{k})\qquad \Delta_{ij}=-i\Delta_ee^{-i\theta}\frac{A_{\theta}^{ij}}{k}$,值得注意的是$\Delta_{23}=\Delta_{32}=0$,即2的电子和3的空穴没有耦合，为了方便起见，将其写在基矢$\ket{\psi_2}_e,\ket{\psi_2}_h,\ket{\psi_1}_e,\ket{\psi_1}_h,\ket{\psi_3}_e,\ket{\psi_3}_h$下，可以得到
+	\begin{align}
+		\begin{pmatrix}
+			E_2-\mu &\Delta_{22} &0&\Delta_{21}&0&0\\
+			\Delta_{22}^{\dagger}&\mu-E_2 &\Delta_{21}^{\dagger}&0&0&0\\
+			0&\Delta_{12}&E_1-\mu&\Delta_{11}&0&\Delta_{13}\\
+			\Delta_{12}^{\dagger}&0&\Delta_{11}^{\dagger}&\mu-E_1&\Delta_{13}^{\dagger}&0\\
+			0&0&0&\Delta_{31}&E_3-\mu&\Delta_{33}\\
+			0&0&\Delta_{31}^{\dagger}&0&\Delta_{33}^{\dagger}&\mu-E_3
+		\end{pmatrix}
+	\end{align}
+当费米面靠近$E_1,E_2$的时候，可以将其投影到费米面附近的$E_1,E_2$处，由此可以得到
+\begin{normalsize}
+\begin{align}
+	\begin{pmatrix}
+		E_2-\mu&i\Delta_ee^{-i\theta}(\partial_k-\frac{i\partial_{\theta}+A_{\theta}^{22}}{k})&0&-i\Delta_ee^{-i\theta}\frac{A_{\theta}^{21}}{k}\\
+		i\Delta_ee^{i\theta}(\partial_k+\frac{i\partial_{\theta}+A_{\theta}^{22}}{k})&\mu-E_2&i\Delta_ee^{i\theta}\frac{A_{\theta}^{21}}{k}&0\\
+		0&-i\Delta_ee^{-i\theta}\frac{A_{\theta}^{12}}{k}&E_1-\mu&i\Delta_ee^{-i\theta}(\partial_k-\frac{i\partial_{\theta}+A_{\theta}^{11}}{k})\\
+		i\Delta_ee^{i\theta}\frac{A_{\theta}^{12}}{k}&0&i\Delta_ee^{i\theta}(\partial_k+\frac{i\partial_{\theta}+A_{\theta}^{11}}{k})&\mu-E_1
+	\end{pmatrix}
+\end{align}	
+\end{normalsize}	
+	做一个变换
+	\begin{align}
+		U=\frac{1}{\sqrt{k}}
+		\begin{pmatrix}
+			e^{i(j-1)\theta}&&&\\
+			&-ie^{ij\theta}&&\\
+			&&e^{i(j-1)\theta}&\\
+			&&&-ie^{ij\theta}
+		\end{pmatrix}
+	\end{align}
+	可以得到
+	\begin{align}
+		&\nonumber
+		\begin{pmatrix}
+			E_2-\mu &\Delta_e(\partial_k+\frac{j-\frac{1}{2}-A_{\theta}^{22}}{k})&0&-\Delta_e\frac{A_{\theta}^{21}}{k}\\
+			\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{22}}{k}-\partial_k)&\mu-E_2&-\Delta_e\frac{A_{\theta}^{21}}{k}&0\\
+			0&-\Delta_e\frac{A_{\theta}^{12}}{k}&E_1-\mu&\Delta_e(\partial_k+\frac{j-\frac{1}{2}-A_{\theta}^{22}}{k})\\
+			-\Delta_e\frac{A_{\theta}^{12}}{k}&0&\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{22}}{k}-\partial_k)&\mu-E_1
+		\end{pmatrix}\\
+	&=i\Delta_e\partial_ks_0\tau_y+\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_z+\frac{1}{2}(E_1-E_2)s_z\tau_z+\begin{pmatrix}
+		&
+	\end{pmatrix}
+	\end{align}
+前面部分可以看做4*4的Jackiw-Rebbi
+\begin{align}
+	H_0=i\Delta_e\partial_ks_0\tau_y+\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_z+\frac{1}{2}(E_1-E_2)s_z\tau_z
+\end{align}
+设其本征态为$\psi(k)$,考虑零能解，可以得到
+\begin{align}
+	i\Delta_e\partial_ks_0\tau_y\psi(k)=[\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_z+\frac{1}{2}(E_1-E_2)s_z\tau_z]\psi(k)
+\end{align}
+两边同时乘以$s_0\tau_y$可以得到
+\begin{align}
+	\partial_k\psi(k)=\frac{1}{\Delta_e}[\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_x+\frac{1}{2}(E_1-E_2)s_z\tau_x]\psi(k)
+\end{align}
+$\psi(k)$必定是$\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_x+\frac{1}{2}(E_1-E_2)s_z\tau_x$的本征态，可以求得其本征态为
+\begin{align}
+	\psi_{1}^{+} = \begin{pmatrix}
+		1\\
+		1\\
+		0\\
+		0\\
+	\end{pmatrix}
+	\qquad
+	\psi_{1}^{-} = \begin{pmatrix}
+		1\\
+		-1\\
+		0\\
+		0\\
+	\end{pmatrix}
+	\psi_{2}^{+} = \begin{pmatrix}
+		0\\
+		0\\
+		1\\
+		1\\
+	\end{pmatrix}
+	\qquad
+	\psi_{2}^{-} = \begin{pmatrix}
+		0\\
+		0\\
+		1\\
+		-1\\
+	\end{pmatrix}
+\end{align}
+由此可得
+\begin{align}
+	\partial_k\psi_1(k)=\eta\frac{E_1-\mu}{\Delta_e}\psi_1(k)\\
+	\partial_k\psi_2(k)=\eta\frac{E_2-\mu}{\Delta_e}\psi_2(k)
+\end{align}
+其中$\eta=\pm$,由此可以得到
+\begin{align}
+	\psi_1(k)=Ce^{\int^k\eta\frac{E_1-\mu}{\Delta_e}dk^{'}}\\
+	\psi_2(k)=Ce^{\int^k\eta\frac{E_2-\mu}{\Delta_e}dk^{'}}
+\end{align}
+其零能解出现在$E_1-\mu$或$E_2-\mu$改变符号的地方。当这个部分能量为0的时候，系统的能量由
+\begin{align}
+	\begin{pmatrix}
+	  	0&\frac{\Delta_e}{k}(j-\frac{1}{2}-A_{\theta}^{22})&0&-\frac{\Delta_e}{k}A_{\theta}^{21}\\
+	  	\frac{\Delta_e}{k}(j-\frac{1}{2}-A_{\theta}^{22})&0&-\frac{\Delta_e}{k}A_{\theta}^{21}&0\\
+	  	0&-\frac{\Delta_e}{k}A_{\theta}^{12}&0&\frac{\Delta_e}{k}(j-\frac{1}{2}-A_{\theta}^{11})\\
+	  	-\frac{\Delta_e}{k}A_{\theta}^{12}&0&\frac{\Delta_e}{k}(j-\frac{1}{2}-A_{\theta}^{11})&0
+	\end{pmatrix}
+\end{align}
+	将其分块对角，即
+	\begin{align}
+		&
+		\begin{pmatrix}
+			\frac{\Delta_e}{k}(j-\frac{1}{2}-A_{\theta}^{22})&-\frac{\Delta_e}{k}A_{\theta}^{21}\\
+			-\frac{\Delta_e}{k}A_{\theta}^{12}&\frac{\Delta_e}{k}(j-\frac{1}{2}-A_{\theta}^{11})
+		\end{pmatrix}
+	&=\frac{\Delta_e}{k}(j-\frac{1}{2}-
+	\begin{pmatrix}
+		A_{\theta}^{22} &A_{\theta}^{21}\\
+		A_{\theta}^{12}&A_{\theta}^{11}
+	\end{pmatrix})
+	\end{align}
+后面这个矩阵可与两条band的SU(2)的Berry phase联系起来，可以证明费米面处的SU(2)Berry phase就是其乘以$2\pi$,从这里可以得出结论就是当费米面处的Berry phase的本征值为$\pi$的奇数倍时，会有零能解。
+	可得
+	\begin{align}
+		A_{\theta}^{22}=-1 \qquad A_{\theta}^{11}=-1 \qquad
+		A_{\theta}^{21}=\frac{\sqrt{2}Ak}{\sqrt{(-M(k)+E)^2+2A^2k^2}}
+	\end{align}
+这个矩阵的本征值为
+\begin{align}
+	E=-1\pm\frac{\sqrt{2}Ak}{\sqrt{(-M(k)+E)^2+2A^2k^2}}
+\end{align}
+因为后面那一项明显大于0，小于1，要使其为半整数，只能等于$\frac{1}{2}$,即可以得到
+\begin{align}
+	\frac{\sqrt{2}Ak}{\sqrt{(-M(k)+E)^2+2A^2k^2}}=\frac{1}{2}
+\end{align}
+可以得到
+\begin{align}
+	3M^2(k)-2A^2k^2=0
+\end{align}
+可以取参数与数值计算的对应，但目前对照得还是有点问题，可能是某个地方有问题,即这两条band相变的能量不一样，一个是$-M(k)$,另外一个是$-2M(k)$。
+\begin{align}
+	\ket{\psi_{1}}_e=\frac{1}{\sqrt{2}}
+	\begin{pmatrix}
+		0\\
+		-1\\
+		1
+	\end{pmatrix}
+	\quad
+	\ket{\psi_{2}}_e=\frac{1}{a}
+	\begin{pmatrix}
+		i(-M(k)+E)e^{i\theta}\\
+		Ak\\
+		Ak
+	\end{pmatrix}
+	\quad
+	\ket{\psi_{3}}_e=
+	\frac{1}{b}
+	\begin{pmatrix}
+		-i(M(k)+E)e^{i\theta}\\
+		Ak\\
+		Ak
+	\end{pmatrix}
+\end{align}
+做同样的变换之后容易发现$\Delta_{21}=\Delta_{31}=0$即耦合项全部没了，因此变换到本征基矢表象下后可以完全的分块对角。而且此时容易发现$A_{\theta}^{11}=0$不可能为半整数，因此1这条带不会有拓扑相变。此时可以计算
+\begin{align}
+	A_{\theta}^{22}=-\frac{(-M(k)+E)^2}{(-M(k)+E)^2+2A^2k^2}
+\end{align}
+要想使其为半整数，容易分析知必为$-\frac{1}{2}$由此可以得到$M(k)=0$带入参数$M0=-1,M1=1,A=0.5$可以得到相变点的$k=\pm 1$,相变的能量为$-\sqrt{2}0.5= 0.707$,对于$E_3$同样分析也可以得到其相变能量为0.707，这一点与数值计算吻合。
+
+\section{Conclusion}
+在只有两个相变点的时候，与数值计算的结果能够对应起来，有四个相变点的时候对应有问题，数值上当$\Delta_{so}=0$的时候，四个相变点是两两重合的，但是目前我算的有点错位，即中间那条带的相变能量与另外两条不一样，我感觉上应该是计算上的问题。
+
+\end{document}

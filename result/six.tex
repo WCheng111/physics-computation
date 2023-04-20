@@ -1,0 +1,320 @@
+\documentclass[22pt]{article}
+\title{\Huge {\vspace{-2cm}Six-band}}
+\author{\LARGE {Wei Cheng}}
+\date{}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage[UTF8]{ctex}%用于识别中文
+\usepackage{underscore}%可以用来正确识别_
+\usepackage{graphicx}%用于插入图片
+\usepackage{color}
+\usepackage{geometry}
+\usepackage{braket}
+\usepackage{listing}
+\geometry{a4paper,scale=0.9}
+\usepackage{hyperref}%用于插入链接
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+}%插入链接的性质
+\usepackage{pythontex}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{framed}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{abstract}
+\usepackage{float}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\renewcommand{\abstractname}{\LARGE Abstract}
+\usepackage{titlesec}
+\definecolor{mygreen}{rgb}{0.8,1,0.73}
+\definecolor{linegreencolor}{rgb}{0,0.4,0}
+\definecolor{myblue}{rgb}{0.22,0.73,0.91}
+
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\LARGE\bfseries}
+\titleformat*{\subsubsection}{\LARGE\bfseries}
+
+
+\newenvironment{greenbox}{%
+	\def\FrameCommand{%
+		\hspace{1pt}%
+		{\color{linegreencolor}\vrule width 2pt}%
+		{\color{mygreen}\vrule width 4pt}%
+		\colorbox{mygreen}%
+	}%
+	\MakeFramed{\advance\hsize-\width\FrameRestore}%
+	\noindent\hspace{-4.55pt}% disable indenting first paragraph
+	\begin{adjustwidth}{}{7pt}%
+		\vspace{2pt}\vspace{2pt}%
+	}
+	{%
+		\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+\newenvironment{bluebox}{%
+	\def\FrameCommand{%
+		\hspace{1pt}%
+		{\color{myblue}\vrule width 2pt}%
+		{\color{myblue}\vrule width 4pt}%
+		\colorbox{myblue}%
+	}%
+	\MakeFramed{\advance\hsize-\width\FrameRestore}%
+	\noindent\hspace{-4.55pt}% disable indenting first paragraph
+	\begin{adjustwidth}{}{7pt}%
+		\vspace{2pt}\vspace{2pt}%
+	}
+	{%
+		\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\colum\left( nwidth}
+	\import{./images/}{#1.pdf_tex}
+}
+
+
+
+
+
+
+\begin{document}
+	\Large
+	\maketitle
+	In the basics $\ket{p_z,\uparrow},\ket{p_z,\downarrow},\ket{d_{xz+iyz},\downarrow},\ket{d_{xz-iyz},\uparrow},\ket{d_{xz+iyz},\uparrow},\ket{d_{xz-iyz,\downarrow}}$，考虑$k_z=0$
+	\begin{align}
+		H=
+		\begin{pmatrix}
+			M(k) &0&0 &-iA_1k_{-} &-iA_2k_{+}&0\\
+			0&M(k)&-iA_1k_{+}&0&0&-iA_2k_{-}\\
+			0&iA_1_{_}&-M(k)&0&0&0\\
+			iA_1k_{+}&0&0&-M(k)&0&0\\
+			iA_2k_{-}&0&0&0&-M(k)+\delta&0\\
+			0&iA_2k_{+}&0&0&0&-M(k)+\delta
+		\end{pmatrix}
+	\end{align}
+	做一个基矢变换
+	\begin{align}
+		U=
+			\begin{pmatrix}
+			1&0&0&0&0&0\\
+			0&0&0&1&0&0\\
+			0&0&0&0&1&0\\
+			0&1&0&0&0&0\\
+			0&0&1&0&0&0\\
+			0&0&0&0&0&1\\
+			\end{pmatrix}
+	\end{align}
+	可以得到
+	\begin{align}
+		H^{'}=
+		\begin{pmatrix}
+			M(k)&-iA_1k_{-}&-iA_2k_{+}&&&\\
+			iA_1k_{+}&-M(k)&0&&&\\
+			iA_2k_{-}&0&-M(k)+\delta&&&\\
+			&&&M(k)&-iA_1K_{+}&0\\
+			&&&iA_1k_{-}&-M(k)&0\\
+			&&&iA_2k_{+}&0&-M(k)+\delta
+		\end{pmatrix}
+	\end{align}
+先考虑其中一个块的内容，其能量本征值满足
+\begin{normalsize}
+\begin{align}
+	E^3+(M(k)-\delta)E^2-[M(k)^2+A_1^2k^2+A_2^2k^2]E-M(k)^3+\delta M(k)^2-M(k)[A_1k^2+A_2^2k^2]+\delta A_1^2k^2=0
+\end{align}
+\end{normalsize}
+考虑vortex，并写到动量空间的极坐标下之后可以得到
+\begin{align}
+	H_{BdG}=
+	\begin{pmatrix}
+		H_k-\mu & i\Delta_ee^{-i\theta}(\partial_k-\frac{i}{k}\partial_{\theta})\\
+		i\Delta_ee^{i\theta}(\partial_k+\frac{i}{k}\partial_{\theta})&\mu-H_k
+	\end{pmatrix}
+\end{align}
+将其投影到$H_k$的本征空间
+可以得到
+
+\begin{align}
+	\begin{pmatrix}
+	E_1-\mu&&&\Delta_{11}&C_{12}&C_{13}\\
+	&E_2-\mu&&C_{21}&\Delta_{22}&C_{23}\\
+	&&E_3-\mu&C_{31}&C_{32}&\Delta_{33}\\
+	\Delta_{11}^{\dagger}&C_{21}^{\dagger}&C_{31}^{\dagger}&\mu-E_1&&\\
+	C_{12}^{\dagger}&\Delta_{22}^{\dagger}&C_{32}^{\dagger}&&\mu-E_2&\\
+	C_{13}^{\dagger}&C_{23}^{\dagger}&\Delta_{33}^{\dagger}&&&\mu-E_3\\
+	\end{pmatrix}
+\end{align}
+其中$\Delta_{ii}=i\Delta_ee^{-i\theta}(\partial_k-iA_k^{11}-\frac{i\partial_{\theta}+A_{\theta}^{11}}{k})$,$C_{ij}=\Delta_ee^{-i\theta}(A_k^{ij}-\frac{i}{k}A_{\theta}^{ij})$
+将其变换到basics$\ket{\psi_{1}_e},\ket{\psi_{1}_h},\ket{\psi_{2}_e},\ket{\psi_{2}_h},\ket{\psi_{2}_e},\ket{\psi_{2}_h}$
+可以得到
+\begin{small}
+\begin{align}
+	\begin{pmatrix}
+		E_1-\mu &\Delta_{11} &0&C_{12}&0&C_{13}\\
+		\Delta_{11}^{\dagger}&\mu-E_1&C_{21}^{\dagger}&0&C_{31}^{\dagger}&0\\
+		0&C_{21}&E_2-\mu&\Delta_{22}&0&C_{23}\\
+		C_{12}^{\dagger}&0&\Delta_{22}^{\dagger}&\mu-E_2&C_{32}^{\dagger}&0\\
+		0&C_{31}&0&C_{32}&E_3-\mu&\Delta_{33}\\
+		C_{13}^{\dagger}&0&C_{23}^{\dagger}&0&\Delta_{33}^{\dagger}&\mu-E_3
+	\end{pmatrix}
+\end{align}
+\end{small}
+根据中岛变换，将其变换成上面$4\cdot 4$和一个$2\cdot 2$的块对角之中，首先将H分解为$H=H_0+H^1+H^2$,其中$H_0$表示对角部分，$H^1$表示非对角但是在对角块的部分，$H^2$表示非对角块部分。由$H^{'}=e^SHe^{-S}$，考虑一阶近似，可以得到变换矩阵为
+\begin{align}
+	S_{ml}^{(1)}=\frac{-H^2_{ml}}{E_m-E_l}
+\end{align}
+
+同样去一阶近似可以得到
+\begin{align}
+	H^{'}=H_0+H^1+[H^2,S^1]
+\end{align}
+首先考虑上面$4*4$的部分，
+\begin{align}
+	H_{04}=
+	\begin{pmatrix}
+		E_1-\mu & \Delta_{11} &0 &C_{12}\\
+		\Delta_{11}^{\dagger}&\mu-E_1&C_{21}^{\dagger}&0\\
+		0&C_{21}&E_2-\mu&\Delta_{22}\\
+		C_{12}^{\dagger}&0&\Delta_{22}^{\dagger}&\mu-E_2
+	\end{pmatrix}
+\end{align}
+一阶微扰项为
+\begin{align}
+	H_{04}^{'}=
+	\begin{pmatrix}
+		&&\frac{C_{13}C_{23}^{\dagger}(E_2-E_1)}{(E_1+E_3)(E_2+E_3)}&\\
+		&&&\frac{C_{31}^{\dagger}C_{32}(E_2-E_1)}{(E_1+E_3)(E_2+E_3)}&&&\\
+		\frac{C_{13}^{\dagger}C_{23}(E_2-E_1)}{(E_1+E_3)(E_2+E_3)}&&&\\
+		&\frac{C_{32}^{\dagger}C_{31}(E_2-E_1)}{(E_1+E_3)(E_2+E_3)}
+	\end{pmatrix}
+\end{align}
+首先求解$H_{04}$的本征态
+\begin{small}
+\begin{align}
+	\begin{pmatrix}
+	E_1-\mu & i\Delta_ee^{-i\theta}(\partial_k-iA_k^{11}-\frac{i\partial_{\theta}+A_{\theta}^{11}}{k})&0&\Delta_ee^{-i\theta}(A_k^{12}-\frac{i}{k}A_{\theta}^{12})\\
+	i\Delta_ee^{i\theta}(\partial_k-iA_k^{11}+\frac{i\partial_{\theta}+A_{\theta}^{11}}{k})&\mu-E_1&\Delta_ee^{i\theta}(A_k^{12}+\frac{i}{k}A_{\theta}^{12})&0\\
+	0&\Delta_ee^{-i\theta}(A_k^{21}-\frac{i}{k}A_{\theta}^{21})&E_2-\mu&i\Delta_ee^{-i\theta}(\partial_k-iA_k^{22}-\frac{i\partial_{\theta}+A_{\theta}^{22}}{k})\\
+	\Delta_ee^{i\theta}(A_k^{21}+\frac{i}{k}A_{\theta}^{21})&0&i\Delta_ee^{i\theta}(\partial_k-iA_k^{22}+\frac{i\partial_{\theta}+A_{\theta}^{22}}{k})&\mu-E_2
+	\end{pmatrix}
+\end{align}
+\end{small}
+做一个变换
+\begin{align}
+	U=\frac{1}{\sqrt{k}}
+	\begin{pmatrix}
+		e^{i(j-1)\theta}&&&\\
+		&-ie^{ij\theta}&&\\
+		&&e^{i(j-1)\theta}&\\
+		&&&-ie^{ij\theta}
+	\end{pmatrix}
+\end{align}
+变换后可以得到
+\begin{small}
+\begin{align}
+	U^{\dagger}HU&=
+	\begin{pmatrix}
+		E_1-\mu &\Delta_e(\partial_k-iA_k^{11}+\frac{j-\frac{1}{2}-A_{\theta}^{11}}{k})&0&-i\Delta_e(A_k^{12}-\frac{i}{k}A_{\theta}^{12})\\
+		\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{11}}{k}+iA_k^{11}-\partial_k)&\mu-E_1&i\Delta_e(A_k^{12}+\frac{i}{k}A_{\theta}^{12})&0\\
+		0&-i\Delta_e(A_k^{21}-\frac{i}{k}A_{\theta}^{21})&E_2-\mu&\Delta_e(\partial_k-iA_k^{22}+\frac{j-\frac{1}{2}-A_{\theta}^{22}}{k})\\
+		i\Delta_e(A_k^{21}+\frac{i}{k}A_{\theta}^{21})&0&\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{22}}{k}+iA_{k}^{22}-\partial_k)&\mu-E_2
+	\end{pmatrix}\\
+&=i\Delta_e\partial_ks_0\tau_y+\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_z+\frac{1}{2}(E_1-E_2)s_z\tau_z+\begin{pmatrix}
+	&
+\end{pmatrix}
+\end{align}
+\end{small}
+其中前两项似乎可以看成四维的JRmodel
+\begin{align}
+	H_0=i\Delta_e\partial_ks_0\tau_y+\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_z+\frac{1}{2}(E_1-E_2)s_z\tau_z
+\end{align}
+设其本征态为$\psi(k)$,考虑零能解，可以得到
+\begin{align}
+	i\Delta_e\partial_ks_0\tau_y\psi(k)=[\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_z+\frac{1}{2}(E_1-E_2)s_z\tau_z]\psi(k)
+\end{align}
+两边同时乘以$s_0\tau_y$可以得到
+\begin{align}
+	\partial_k\psi(k)=\frac{1}{\Delta_e}[\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_x+\frac{1}{2}(E_1-E_2)s_z\tau_x]\psi(k)
+\end{align}
+$\psi(k)$必定是$\frac{1}{2}(E_1+E_2-2\mu)s_0\tau_x+\frac{1}{2}(E_1-E_2)s_z\tau_x$的本征态，可以求得其本征态为
+\begin{align}
+	\psi_{1}^{+} = \begin{pmatrix}
+		1\\
+		1\\
+		0\\
+		0\\
+	\end{pmatrix}
+\qquad
+\psi_{1}^{-} = \begin{pmatrix}
+	1\\
+	-1\\
+	0\\
+	0\\
+\end{pmatrix}
+	\psi_{2}^{+} = \begin{pmatrix}
+	0\\
+	0\\
+	1\\
+	1\\
+\end{pmatrix}
+\qquad
+\psi_{2}^{-} = \begin{pmatrix}
+	0\\
+	0\\
+	1\\
+	-1\\
+\end{pmatrix}
+\end{align}
+由此可得
+\begin{align}
+	\partial_k\psi_1(k)=\eta\frac{E_1-\mu}{\Delta_e}\psi_1(k)\\
+	\partial_k\psi_2(k)=\eta\frac{E_2-\mu}{\Delta_e}\psi_2(k)
+\end{align}
+其中$\eta=\pm$,由此可以得到
+\begin{align}
+		\psi_1(k)=Ce^{\int^k\eta\frac{E_1-\mu}{\Delta_e}dk^{'}}\\
+		\psi_2(k)=Ce^{\int^k\eta\frac{E_2-\mu}{\Delta_e}dk^{'}}
+\end{align}
+其零能解出现在$E_1-\mu$或$E_2-\mu$改变符号的地方。此时再来求解这个矩阵的本征值
+\begin{align}
+	\begin{pmatrix}
+		0&\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{11}}{k}-iA_k^{11})&0&-i\Delta_e(A_k^{12}-\frac{i}{k}A_{\theta}^{12})\\
+		\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{11}}{k}+iA_k^{11})&0&i\Delta_e(A_k^{12}+\frac{i}{k}A_{\theta}^{12})&0\\
+		0&-i\Delta_e(A_k^{21}-\frac{i}{k}A_{\theta}^{21})&0&\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{22}}{k}-iA_k^{22})\\
+		i\Delta_e(A_k^{21}+\frac{i}{k}A_{\theta}^{21})&0&\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{22}}{k}+iA_k^{22})
+	\end{pmatrix}
+\end{align}
+将其分块对角，即求解
+\begin{align}
+	&
+	\begin{pmatrix}
+	\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{11}}{k}-iA_k^{11})&-i\Delta_e(A_k^{12}-\frac{i}{k}A_{\theta}^{12})\\
+	-i\Delta_e(A_k^{21}-\frac{i}{k}A_{\theta}^{21})&
+	\Delta_e(\frac{j-\frac{1}{2}-A_{\theta}^{22}}{k}-iA_k^{22})
+	\end{pmatrix}\\
+&=\frac{\Delta_e}{k}(j-\frac{1}{2})\sigma_0+\Delta_e
+\begin{pmatrix}
+	-\frac{A_{\theta}^{11}}{k}-iA_k^{11}&-\frac{A_{\theta}^{12}}{k}-iA_k^{12}\\
+	-\frac{A_{\theta}^{21}}{k}-iA_k^{21}&-\frac{A_{\theta}^{22}}{k}-iA_k^{22}
+\end{pmatrix}
+\end{align}
+各向同性的时候费米面处SU(2)的Berry phase为
+\begin{align}
+	\phi_{FS}&=\oint_{FS}\vec{A_{ij}}d\vec{k}\\
+	&=\int_0^{2\pi}kd\theta \bra{\psi_i}\frac{\partial_{\theta}}{k}\ket{\psi_j}
+	\\
+	&=2\pi A_{\theta}^{ij}
+\end{align}
+其中$A_k$无法通过规范变换全部消除，即除了Berry phase似乎还有其他项，但这些项是否为0我还无法确定。
+\section{Conclusion}
+在$k_z=0$的时候，将电子部分哈密顿量化成了3*3分块对角，然后考虑超导以及vortex，将其写到particle-hole space，并且投影到电子哈密顿量的本征态上，然后将6*6的哈密顿量用中岛变换将非对角块的部分变换到块对角部分，目前只考虑到一阶近似。先考虑4*4这一块部分，首先不考虑中岛变换过来的微扰项，这一部分似乎可以化成4*4的Jackiw-Rebbi，然后按照能量可以变成两套2*2的Jackiw-Rebbi。然后进一步考虑其他项的时候，发现除了SU(2)的Berry phase还有一些$A_k$项，感觉无法消掉。
+
+\end{document}
