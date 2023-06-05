@@ -486,15 +486,12 @@ At the same time,we can calculate the vortex phase transition energy,we can get
 \begin{align}
 	\frac{k_{-}(E)}{k_m}A_{\theta}^{0-}=\frac{k_{-}(E)}{\frac{k_{0}(E)+k_{-}(E)}{2}}\frac{\sqrt{2}Ak_{-}(E)}{a_{-}}=\frac{1}{2}
 \end{align}
-\begin{align}
-	\frac{k_{-}(E)}{k_m}A_{\theta}^{0-}=\frac{k_{-}(E)}{\frac{k_{0}(E)+k_{-}(E)}{2}}\frac{\sqrt{2}Ak_{-}(E)}{a_{-}}=\frac{1}{2}
-\end{align}
 we can bring the parameter into equation,it's the $M0=-1,M1=1,A=0.5$,for simpilify,we can estimate $\frac{k_{-}(E)}{\frac{k_{0}(E)+k_{-}(E)}{2}}$ to be a constant 0.81,Finally we can get it's vortex phase transition at E=-0.79,At the same time,we can get When the Fermi surface near the $\mu_{+}$,it's vortex phase transition point at E=0.66.
 \par 
 So from the analysis,we can get there will have four vortex phase transition point,two of them have the 0 angular momentum,other have +1 angular momentum, and the vortex phase transition energy at $E_{+}=0.66$,$E_{-}=-0.79$,there are all correspondence to numerical calculation.
-<<<<<<< HEAD
+
 \par 
-=======
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.6]{figure/3}
@@ -503,17 +500,16 @@ So from the analysis,we can get there will have four vortex phase transition poi
 	\centering
 	\includegraphics[scale=0.6]{figure/4}
 \end{figure}
-即相变点的能量大概是在0.66和-0.79附近，数值计算的结果为
->>>>>>> b53605fb45b32ab169728bde956b76c011c1e844
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.6]{figure/5}
 \end{figure}
-<<<<<<< HEAD
+
 When change the sign of parameter of the $k_y$,the Hamiliton change to
-=======
+
 When we change the sign of ky's parameter in Dirac semimetal,the electron Hamiliton become
->>>>>>> b53605fb45b32ab169728bde956b76c011c1e844
+
 \begin{align}
 	H_{e\uparrow}(k)=
 	\begin{pmatrix}
@@ -522,11 +518,11 @@ When we change the sign of ky's parameter in Dirac semimetal,the electron Hamili
 		iAke^{i\theta}&0&-M(k)
 	\end{pmatrix}
 \end{align}
-<<<<<<< HEAD
+
 We can definite the angular momentum
-=======
+
 Now the angular momentum become
->>>>>>> b53605fb45b32ab169728bde956b76c011c1e844
+
 \begin{align}
 	J_z=-i\partial_{\theta}+\begin{pmatrix}
 		\frac{1}{2}&&\\
@@ -534,11 +530,11 @@ Now the angular momentum become
 		&&-\frac{1}{2}
 	\end{pmatrix}
 \end{align}
-<<<<<<< HEAD
+
 We can use the same way to get the eige states of the $H_{e\uparrow}(k)$
-=======
+
 Use the same way,we can solve the eigen states of the $H_{e\uparrow}(k)$
->>>>>>> b53605fb45b32ab169728bde956b76c011c1e844
+
 \begin{align}
 	\ket{\psi_0^j}_e=\frac{1}{2\sqrt{\pi}}
 	\begin{pmatrix}
@@ -615,6 +611,49 @@ From easily analysis,if the  $A_{\theta}^{--}$ is the half of integer,it must be
 	\includegraphics[scale=0.6]{figure/6}
 \end{figure}
 
+When change the parameter of $k_y$ to zero,it says that the Hamiliton change to 
+\begin{align}
+		H_{e\uparrow}(k)=
+		\begin{pmatrix}
+					M(k) & -iAk_{-} &-iAk_{x}\\
+					iAk_{+} &-M(k) &0\\
+					iAk_{x}&0&-M(k)
+		\end{pmatrix}
+\end{align}
+we can solve it's eigenvalue and eigenstates
+\begin{align}
+	E_{0}=-M(k) \qquad E_{\pm}=\pm \sqrt{M(k)^2+2A^2k_x^2+A^2k_y^2}
+\end{align}
 
+\begin{align}
+	\psi_0=\frac{1}{\sqrt{3\pi}}
+	\begin{pmatrix}
+		0\\
+		-cos\theta\\
+		e^{-i\theta}
+	\end{pmatrix}
+\qquad 
+	\psi_{\pm}=\frac{1}{a_{\pm}}
+\begin{pmatrix}
+		-i(M(k)\pm E)\\
+		Ake^{i\theta}\\
+		Akcos\theta
+\end{pmatrix}
+\end{align}
+The normalization coefficient is
+\begin{align}
+	a_{\pm}&=\int_0^{2\pi}A^2k^2cos\theta^2+A^2k^2+(M(k)\pm E)^2 d\theta \\
+	&=3\pi A^2k^2+2\pi M(k)+\int_0^{2\pi}\sqrt{M(k)^2+A^2k^2+A^2k^2cos\theta^2}d\theta\\
+	&=3\pi A^2k^2+2\pi M(k)+\alpha (k)
+\end{align}
+At this time,we can find the $E_{0}$ is isotropic,but the $E_{\pm}$ is anisotropy.For simpilify to estimate,we can just think $E_{\pm}$ is isotropic.The we can use the same way of the calculation, we assume that the fermi surface is near the $\mu_{0}$
+we can get the 
+\begin{align}
+	A_{\theta}^{00}=i\bra{\psi_0}\partial_{\theta}\ket{\psi_0}=\frac{2}{3}
+\end{align}
+so it can't be a half of integer , so the middle band can't have a vortex phase transition point.
+\par 
+we next assume that the fermi surface is near the $\mu_{-}$,we can calculate that 
+ 
 
 \end{document}
