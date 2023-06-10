@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c386f056-46e6-4da2-b7dc-04b312d9aab7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/iron/testkwant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kagome/tb.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kagome/tbcorre.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kagome/tbnew.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/physics-computation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/physics-computation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kagome/tblm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kagome/threeband.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iron/band.py" beforeDir="false" afterPath="$PROJECT_DIR$/iron/band.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iron/vortex.pptx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/vortex.aux" beforeDir="false" afterPath="$PROJECT_DIR$/result/vortex.aux" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/vortex.log" beforeDir="false" afterPath="$PROJECT_DIR$/result/vortex.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/vortex.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/result/vortex.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/vortex.pytxcode" beforeDir="false" afterPath="$PROJECT_DIR$/result/vortex.pytxcode" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/vortex.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/result/vortex.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/vortex.tex" beforeDir="false" afterPath="$PROJECT_DIR$/result/vortex.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vortex.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/vortex.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kagome/tb.py" beforeDir="false" afterPath="$PROJECT_DIR$/kagome/tb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kagome/tbnew.py" beforeDir="false" afterPath="$PROJECT_DIR$/kagome/tbnew.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
