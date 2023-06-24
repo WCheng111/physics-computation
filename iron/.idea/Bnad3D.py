@@ -55,37 +55,44 @@ A2 =0.5
 A3=0
 B1 =0
 C1 = 0
-D1 = 0.5
-D2 = 0.5
+D1 = 0
+D2 = 0
 # soc = 2
 Break4m = 0
 Break4x = 0
 socm1 = np.array([[-1, 0, 0, 0, 0, 0], [0, -1, 0, 0, 0, 0], [0, 0, -1, 0, 0, 0], [0, 0, 0, -1, 0, 0], [0, 0, 0, 0, 1, 0],
                   [0, 0, 0, 0, 0, 1]])
-soc=0.1
+soc=0.4
 
 
 
-def H_iron(ky):
-    kx=ky
+def H_iron(kx, ky):
     kz=0
     H_iron= (M00 + 2 * M01 * (1 - cos(kx)) + 2 * M01 * (1 - cos(ky)) + 2 * M02 * (1 - cos(kz))) * Dia_TISM + A1 * sin(
         kx) * M[2][1] + \
-             A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A2 * sin(ky) * M[4][3] + \
+             A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A3 * sin(ky) * M[4][3] + \
              (2 * D1 * (1 - cos(kx)) - 2 * D1 * (1 - cos(ky))) * M[6][1] + D2 * sin(kx) * sin(ky) * M[6][2] + B1 * sin(
         kz) * M[2][3] + soc * socm1 \
              + Break4x * sin(kz) * M[4][1]
     return H_iron
 
-km = np.linspace(-1, 1, 201) * math.sqrt(2)*pi
-E= []
-for i in range(len(km)):
-        Energy, wave=np.linalg.eigh(H_iron(km[i]/math.sqrt(2)))
-        E.append(Energy)
-plt.plot(km, E, color="black")
-print(M[2][2])
-plt.xlabel('km')
-plt.ylabel('Energy')
+kx = np.linspace(-1, 1, 201) * pi
+ky=np.linspace(-1, 1, 201) * pi
+KX, KY = np.meshgrid(kx, ky)
+E= np.zeros((201,201,6))
+E2= np.zeros((5,5,2))
+for i in range(len(KX)):
+    for j in range(len(KY)):
+        Energy,wave=np.linalg.eigh(H_iron(KX[i][j],KY[i][j]))
+        E[i,j,:] =np.sort(np.real(Energy[:]))
+
+print(E2)
+fig = plt.figure()
+ax = Axes3D(fig)
+for b in range(6):
+    #ax1.plot_surface(K_X,K_Y,E[:,:,b],rstride = 1, cstride = 1,cmap='rainbow')
+    ax.plot_surface(KX,KY,E[:,:,b],cmap='viridis')
+
 plt.show()
 
 

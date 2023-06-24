@@ -47,8 +47,8 @@ Dia_TISM = np.array(
     [[1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0], [0, 0, -1, 0, 0, 0], [0, 0, 0, -1, 0, 0], [0, 0, 0, 0, -1, 0],
      [0, 0, 0, 0, 0, -1]])
 
-M00 = 1
-M01 = -1
+M00 = -1
+M01 = 1
 M02 = 1
 A1 = 0.5
 A2 =0.5
@@ -136,7 +136,7 @@ def cal3(ks1, soc):
 
 kx = np.linspace(-1, 1, 201) * pi
 # print(cal(ks, 2)[])
-int_soc = 0
+int_soc = 0.2
 m=[]
 for i in range(len(kx)):
     m.append(0)
