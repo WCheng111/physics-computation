@@ -46,30 +46,39 @@ for i in range(4):
 Dia_TISM = np.array(
     [[1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0], [0, 0, -1, 0, 0, 0], [0, 0, 0, -1, 0, 0], [0, 0, 0, 0, -1, 0],
      [0, 0, 0, 0, 0, -1]])
+PZ=np.array([[1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0],
+     [0, 0, 0, 0, 0, 0]])
+dZ=np.array([[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0],
+     [0, 0, 0, 0, 0, 1]])
 
-M00 = 1
-M01 = -1
-M02 = 1
-A1 = 0.5
-A2 =0.5
+M00 = 50
+M01 = 80
+M02 = -25
+M10=-10
+M11=-80
+M12=5
+A1 = 50
+A2 =50
 A3=0
-B1 =0
+B1 =5
 C1 = 0
 D1 = 0.5
 D2 = 0.5
 # soc = 2
-Break4m = 0
-Break4x = 0
+Break4m = 5
+Break4x = 5
 socm1 = np.array([[-1, 0, 0, 0, 0, 0], [0, -1, 0, 0, 0, 0], [0, 0, -1, 0, 0, 0], [0, 0, 0, -1, 0, 0], [0, 0, 0, 0, 1, 0],
                   [0, 0, 0, 0, 0, 1]])
-soc=0.1
+soc=10
 
 
 
-def H_iron(ky):
-    kx=ky
-    kz=0
-    H_iron= (M00 + 2 * M01 * (1 - cos(kx)) + 2 * M01 * (1 - cos(ky)) + 2 * M02 * (1 - cos(kz))) * Dia_TISM + A1 * sin(
+def H_iron(kz):
+    kx=0
+    ky=0
+    kz=kz
+    H_iron= (M00 + 2 * M01 * (1 - cos(kx)) + 2 * M01 * (1 - cos(ky)) + 2 * M02 * (1 - cos(kz))) * PZ+\
+            (M10 + 2 * M11 * (1 - cos(kx)) + 2 * M11 * (1 - cos(ky)) + 2 * M12 * (1 - cos(kz)))*dZ + A1 * sin(
         kx) * M[2][1] + \
              A1 * sin(ky) * M[2][2] + A2 * sin(kx) * M[5][0] + A2 * sin(ky) * M[4][3] + \
              (2 * D1 * (1 - cos(kx)) - 2 * D1 * (1 - cos(ky))) * M[6][1] + D2 * sin(kx) * sin(ky) * M[6][2] + B1 * sin(
@@ -77,14 +86,14 @@ def H_iron(ky):
              + Break4x * sin(kz) * M[4][1]
     return H_iron
 
-km = np.linspace(-1, 1, 201) * math.sqrt(2)*pi
+kz = np.linspace(-1, 1, 201) *pi
 E= []
-for i in range(len(km)):
-        Energy, wave=np.linalg.eigh(H_iron(km[i]/math.sqrt(2)))
+for i in range(len(kz)):
+        Energy, wave=np.linalg.eigh(H_iron(kz[i]))
         E.append(Energy)
-plt.plot(km, E, color="black")
+plt.plot(kz, E, color="black")
 print(M[2][2])
-plt.xlabel('km')
+plt.xlabel('kz')
 plt.ylabel('Energy')
 plt.show()
 

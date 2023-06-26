@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c386f056-46e6-4da2-b7dc-04b312d9aab7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Threeband/Edgestates.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Threeband/qwz.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iron/.idea/Bnad3D.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iron/ALLband.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iron/Edgesates.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iron/xopen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iron/threeband.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/physics-computation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/physics-computation.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iron/band.py" beforeDir="false" afterPath="$PROJECT_DIR$/iron/band.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iron/123.npy" beforeDir="false" afterPath="$PROJECT_DIR$/iron/123.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iron/22.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/iron/22.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iron/band1.py" beforeDir="false" afterPath="$PROJECT_DIR$/iron/band1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
