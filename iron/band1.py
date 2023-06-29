@@ -73,9 +73,9 @@ soc=10
 
 
 
-def H_iron(kz):
-    kx=0
-    ky=0
+def H_iron(kx, ky, kz):
+    kx=kx
+    ky=ky
     kz=kz
     H_iron= (M00 + 2 * M01 * (1 - cos(kx)) + 2 * M01 * (1 - cos(ky)) + 2 * M02 * (1 - cos(kz))) * PZ+\
             (M10 + 2 * M11 * (1 - cos(kx)) + 2 * M11 * (1 - cos(ky)) + 2 * M12 * (1 - cos(kz)))*dZ + A1 * sin(
@@ -89,7 +89,7 @@ def H_iron(kz):
 kz = np.linspace(-1, 1, 201) *pi
 E= []
 for i in range(len(kz)):
-        Energy, wave=np.linalg.eigh(H_iron(kz[i]))
+        Energy, wave=np.linalg.eigh(H_iron(kz[i],0, 0))
         E.append(Energy)
 plt.plot(kz, E, color="black")
 print(M[2][2])
