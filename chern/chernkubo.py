@@ -10,7 +10,7 @@ import math
 M0=1
 M1=-1
 A=0.5
-SOC=1
+SOC=0.002
 
 def H(kx,ky):
     H=np.array([[M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky)), -1j*A*(math.sin(kx)+1j*math.sin(ky))],
@@ -40,17 +40,17 @@ def calate(kx,ky):
 print(calate(0,0))
 ##write a function to calculate the derivative of the Hamiltonian
 def diffx(kx,ky):
-    delta=1e-6
+    delta=1e-15
     diffx=(H(kx+delta,ky)-H(kx,ky))/delta
     return diffx
 def diffy(kx,ky):
-    delta=1e-6
+    delta=1e-15
     diffy=(H(kx,ky+delta)-H(kx,ky))/delta
     return diffy
 # print(diffx(0,0))
 #print(np.dot(sta0,np.dot(diffx(0,0),sta0)))
 # print(np.conjugate(sta0))
-N=100
+N=300
 kx=np.linspace(-math.pi,math.pi,N)
 ky=np.linspace(-math.pi,math.pi,N)
 Delta=2*math.pi/N
