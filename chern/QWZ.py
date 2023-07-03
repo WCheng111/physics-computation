@@ -80,7 +80,7 @@ for i in range(len(kx) - 1):
         chern_2 = chern_2 + ((partial10x - partial10y) / ((eng1 - eng0) ** 2))*Delta**2
 
 
-Mchange=np.linspace(-2,2,21)
+Mchange=np.linspace(-6,6,31)
 chern_change=np.zeros((len(Mchange),2))
 for k in range(len(Mchange)):
     chern_change1 = 0
@@ -102,7 +102,7 @@ for k in range(len(Mchange)):
                 sta0.transpose().conj(), np.dot(diffx(kx[i], ky[j],Mchange[k]), sta1))
             chern_change2 = chern_change2 + ((partial10x - partial10y) / ((eng1 - eng0) ** 2)) * Delta ** 2
     chern_change[k,0]=(1j*chern_change1/(2*math.pi)).real
-    chern_change[k,1]=(1j*chern_change1/(2*math.pi)).real
+    chern_change[k,1]=(1j*chern_change2/(2*math.pi)).real
 
 #
 plt.plot(Mchange,chern_change[:,0])

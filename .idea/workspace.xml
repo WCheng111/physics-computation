@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c386f056-46e6-4da2-b7dc-04b312d9aab7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/chern/QWZ.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chern/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chern/chernkubo.py" beforeDir="false" afterPath="$PROJECT_DIR$/chern/chernkubo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chern/QWZ.py" beforeDir="false" afterPath="$PROJECT_DIR$/chern/QWZ.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
