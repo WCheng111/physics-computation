@@ -10,14 +10,14 @@ import math
 M0=1
 M1=-1
 A=0.5
-SOC=0.002
+SOC=0.00002
 
 def H(kx,ky):
     H=np.array([[M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky)), -1j*A*(math.sin(kx)+1j*math.sin(ky))],
                [1j*A*(math.sin(kx)+1j*math.sin(ky)),-(M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky))), 0],
                 [1j*A*(math.sin(kx)-1j*math.sin(ky)), 0,-(M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)))+SOC]])
     return H
-print(H(0,0))
+#print(H(0,0))
 def cal1(ks1):
     Eng=[]
     for i in range(len(ks1)):
