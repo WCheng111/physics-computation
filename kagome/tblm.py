@@ -55,7 +55,7 @@ def cal_energy(ksx,ksy,ksz):
 
 Eng=[]
 Eng1=[]
-LM=np.linspace(0,1/c,100)*pi
+LM=np.linspace(0,1/c,2)*pi
 for i in range(len(LM)):
     Eng.append(cal_energy(0,2*pi/(sqrt(3)*a),LM[i]))
 
