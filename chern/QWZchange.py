@@ -79,7 +79,7 @@ chern_3=0
 #         chern_2 = chern_2 + ((partial10x - partial10y) / ((eng1 - eng0) ** 2))*Delta**2
 
 
-Mchange=np.linspace(-5.2,6.2,111)
+Mchange=np.linspace(-5.2,6.2,100)
 print(Mchange)
 chern_change=np.zeros((len(Mchange),2))
 for k in range(len(Mchange)):
@@ -105,11 +105,8 @@ for k in range(len(Mchange)):
     chern_change[k,1]=(1j*chern_change2/(2*math.pi)).real
 
 #
-plt.plot(Mchange,chern_change[:,0])
-plt.plot(Mchange,chern_change[:,1])
-plt.xlim(-5,5)
-plt.xlabel("M")
-plt.ylabel("Chern number")
+plt.scatter(Mchange,chern_change[:,0])
+plt.scatter(Mchange,chern_change[:,1])
 plt.show()
 # print("下面能带的陈数为:",(1j*chern_1)/(2*math.pi))
 # print("上面能带的陈数为:",(1j*chern_2)/(2*math.pi))
