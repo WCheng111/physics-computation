@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import kwant
-import tinyarray
+
 import math
 import time
 
@@ -79,7 +78,7 @@ chern_3=0
 #         chern_2 = chern_2 + ((partial10x - partial10y) / ((eng1 - eng0) ** 2))*Delta**2
 
 
-Mchange=np.linspace(-5.2,6.2,111)
+Mchange=np.linspace(-5.2,6.2,5)
 print(Mchange)
 chern_change=np.zeros((len(Mchange),2))
 for k in range(len(Mchange)):
@@ -110,7 +109,7 @@ plt.plot(Mchange,chern_change[:,1])
 plt.xlim(-5,5)
 plt.xlabel("M")
 plt.ylabel("Chern number")
-plt.show()
+plt.show(block=True)
 # print("下面能带的陈数为:",(1j*chern_1)/(2*math.pi))
 # print("上面能带的陈数为:",(1j*chern_2)/(2*math.pi))
 
