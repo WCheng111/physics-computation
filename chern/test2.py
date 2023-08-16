@@ -11,9 +11,9 @@ A=0.5
 
 
 def H(kx,ky,SOC):
-    H=np.array([[M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky))],
+    H=np.array([[M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky)), -1j*A*(math.sin(kx)+1j*math.sin(ky))],
                [1j*A*(math.sin(kx)+1j*math.sin(ky)),-(M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky))), 0],
-                [1j*A*(math.sin(kx)+1j*math.sin(ky)), 0,-(M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)))+SOC]])
+                [1j*A*(math.sin(kx)-1j*math.sin(ky)), 0,-(M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)))+SOC]])
     return H
 #print(H(0,0))
 # def cal1(ks1,SOC):
@@ -43,9 +43,9 @@ def diffx(kx,ky,SOC):
                 [1j*A*math.cos(kx), 0,-2*M1*math.sin(kx)+SOC]])
     return diffx
 def diffy(kx,ky,SOC):
-    diffy=np.array([[2*M1*math.sin(ky), -1*A*math.cos(ky), -A*math.cos(ky)],
+    diffy=np.array([[2*M1*math.sin(ky), -1*A*math.cos(ky), A*math.cos(ky)],
                [-1*A*math.cos(ky),-2*M1*math.sin(ky), 0],
-                [-A*math.cos(ky), 0,-2*M1*math.sin(ky)+SOC]])
+                [A*math.cos(ky), 0,-2*M1*math.sin(ky)+SOC]])
     return diffy
 # print(diffx(0,0))
 #print(np.dot(sta0,np.dot(diffx(0,0),sta0)))

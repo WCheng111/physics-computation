@@ -104,7 +104,7 @@ for k in range(len(Mchange)):
     chern_change[k,1]=(1j*chern_change2/(2*math.pi)).real
 
 #
-plt.plot(Mchange,chern_change[:,0])
+plt.scatter(Mchange,chern_change[:,0])
 plt.plot(Mchange,chern_change[:,1])
 plt.xlim(-5,5)
 plt.xlabel("M")
