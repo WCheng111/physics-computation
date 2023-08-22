@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-
+import time
 
 
 
@@ -11,9 +11,9 @@ A=12.5
 
 
 def H(kx,ky,SOC):
-    H=np.array([[M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky))],
+    H=np.array([[M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky)), -1j*A*(math.sin(kx)+1j*math.sin(ky))],
                [1j*A*(math.sin(kx)+1j*math.sin(ky)),-(M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky))), 0],
-                [1j*A*(math.sin(kx)+1j*math.sin(ky)), 0,-(M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)))+SOC]])
+                [1j*A*(math.sin(kx)-1j*math.sin(ky)), 0,-(M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)))+SOC]])
     return H
 #print(H(0,0))
 # def cal1(ks1,SOC):
@@ -43,9 +43,9 @@ def diffx(kx,ky,SOC):
                 [1j*A*math.cos(kx), 0,-2*M1*math.sin(kx)+SOC]])
     return diffx
 def diffy(kx,ky,SOC):
-    diffy=np.array([[2*M1*math.sin(ky), -1*A*math.cos(ky), -A*math.cos(ky)],
+    diffy=np.array([[2*M1*math.sin(ky), -1*A*math.cos(ky), A*math.cos(ky)],
                [-1*A*math.cos(ky),-2*M1*math.sin(ky), 0],
-                [-A*math.cos(ky), 0,-2*M1*math.sin(ky)+SOC]])
+                [A*math.cos(ky), 0,-2*M1*math.sin(ky)+SOC]])
     return diffy
 # print(diffx(0,0))
 #print(np.dot(sta0,np.dot(diffx(0,0),sta0)))
@@ -57,8 +57,9 @@ Delta=2*math.pi/N
 chern_1=0
 chern_2=0
 chern_3=0
-SOC=np.linspace(-45,45,2)
+SOC=np.linspace(-45,45,200)
 chern_change=np.zeros((len(SOC),3))
+start=time.time()
 for k in range(len(SOC)):
     chern_1 = 0
     chern_2 = 0
@@ -93,13 +94,13 @@ for k in range(len(SOC)):
     chern_change[k, 0] = (1j * chern_1 / (2 * math.pi)).real
     chern_change[k, 1] = (1j * chern_2 / (2 * math.pi)).real
     chern_change[k, 2] = (1j * chern_3 / (2 * math.pi)).real
-
-plt.plot(SOC, chern_change[:, 0], label='chern_1', linewidth=2)
-plt.plot(SOC, chern_change[:, 1], label='chern_2', linewidth=2)
-plt.plot(SOC, chern_change[:, 2], label='chern_3', linewidth=2)
-plt.xlabel(r'$\lambda$')
-plt.ylabel('chern number')
+np.save('chernnum.npy',chern_change)
+plt.scatter(SOC, chern_change[:, 0], label='chern_1')
+plt.scatter(SOC, chern_change[:, 1], label='chern_2')
+plt.scatter(SOC, chern_change[:, 2], label='chern_3')
 plt.show()
+end=time.time()
+print(end-start)
 # print("最下面能带的陈数为",1j*chern_1/(2*math.pi))
 # print("中间能带的陈数为",1j*chern_2/(2*math.pi))
 # print("最上面能带的陈数为",1j*chern_3/(2*math.pi))
