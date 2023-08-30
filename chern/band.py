@@ -8,7 +8,7 @@ import time
 M0=25
 M1=-25
 A=12.5
-SOC=45
+SOC=40
 ky=0
 def H(kx,ky,SOC):
     H=np.array([[M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky)), -1j*A*(math.sin(kx)+1j*math.sin(ky))],
