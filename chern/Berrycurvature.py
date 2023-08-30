@@ -60,7 +60,7 @@ Delta=2*math.pi/N
 # chern_1=0
 # chern_2=0
 # chern_3=0
-SOCl=[1,30,40,48]
+SOCl=[1,30,40,49.999]
 # chern_change=np.zeros((len(SOC),3))
 fig, axs = plt.subplots(2, 2, figsize=(10, 8))
 axs = axs.ravel()
