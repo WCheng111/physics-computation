@@ -57,7 +57,7 @@ Delta=2*math.pi/N
 chern_1=0
 chern_2=0
 chern_3=0
-SOC=np.linspace(-45,45,2)
+SOC=np.linspace(10,45,2)
 chern_change=np.zeros((len(SOC),3))
 for k in range(len(SOC)):
     chern_1 = 0
@@ -94,12 +94,13 @@ for k in range(len(SOC)):
     chern_change[k, 1] = (1j * chern_2 / (2 * math.pi)).real
     chern_change[k, 2] = (1j * chern_3 / (2 * math.pi)).real
 
-plt.plot(SOC, chern_change[:, 0], label='chern_1', linewidth=2)
-plt.plot(SOC, chern_change[:, 1], label='chern_2', linewidth=2)
-plt.plot(SOC, chern_change[:, 2], label='chern_3', linewidth=2)
-plt.xlabel(r'$\lambda$')
-plt.ylabel('chern number')
-plt.show()
+print(chern_change)
+# plt.plot(SOC, chern_change[:, 0], label='chern_1', linewidth=2)
+# plt.plot(SOC, chern_change[:, 1], label='chern_2', linewidth=2)
+# plt.plot(SOC, chern_change[:, 2], label='chern_3', linewidth=2)
+# plt.xlabel(r'$\lambda$')
+# plt.ylabel('chern number')
+# plt.show()
 # print("最下面能带的陈数为",1j*chern_1/(2*math.pi))
 # print("中间能带的陈数为",1j*chern_2/(2*math.pi))
 # print("最上面能带的陈数为",1j*chern_3/(2*math.pi))
