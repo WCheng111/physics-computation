@@ -8,7 +8,7 @@ import time
 M0=25
 M1=-25
 A=12.5
-SOC=40
+SOC=-80
 ky=0
 def H(kx,ky,SOC):
     H=np.array([[M0+2*M1*(1-math.cos(kx))+2*M1*(1-math.cos(ky)), -1j*A*(math.sin(kx)-1j*math.sin(ky)), -1j*A*(math.sin(kx)+1j*math.sin(ky))],
@@ -46,5 +46,6 @@ plt.plot(kx,E[:,0],label='band1',color='black')
 plt.plot(kx,E[:,1],label='band2',color='black')
 plt.plot(kx,E[:,2],label='band3',color='black')
 plt.xlabel('kx')
+plt.title(f'soc={SOC}')
 plt.ylabel('Energy')
 plt.show()

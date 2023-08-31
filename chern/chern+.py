@@ -40,12 +40,12 @@ def calate(kx,ky,SOC):
 def diffx(kx,ky,SOC):
     diffx=np.array([[2*M1*math.sin(kx), -1j*A*math.cos(kx), -1j*A*math.cos(kx)],
                [1j*A*math.cos(kx),-2*M1*math.sin(kx), 0],
-                [1j*A*math.cos(kx), 0,-2*M1*math.sin(kx)+SOC]])
+                [1j*A*math.cos(kx), 0,-2*M1*math.sin(kx)]])
     return diffx
 def diffy(kx,ky,SOC):
     diffy=np.array([[2*M1*math.sin(ky), -1*A*math.cos(ky), A*math.cos(ky)],
                [-1*A*math.cos(ky),-2*M1*math.sin(ky), 0],
-                [A*math.cos(ky), 0,-2*M1*math.sin(ky)+SOC]])
+                [A*math.cos(ky), 0,-2*M1*math.sin(ky)]])
     return diffy
 # print(diffx(0,0))
 #print(np.dot(sta0,np.dot(diffx(0,0),sta0)))
