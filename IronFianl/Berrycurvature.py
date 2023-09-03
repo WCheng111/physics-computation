@@ -7,8 +7,8 @@ from matplotlib.colors import Normalize
 M0=25
 B3=-10
 B=25
-A=2
-SOC=20
+A=4
+SOC=0.01
 
 def H(kx,ky,A3):
     H=np.array([[M0+2*B3*(1-math.cos(kx))+2*B*(1-math.cos(ky)), -A*(math.sin(kx)-1j*math.sin(ky)), -A3*math.sin(kx)+1j*A*math.sin(ky)],
@@ -43,7 +43,7 @@ kx=np.linspace(-math.pi,math.pi,N)
 ky=np.linspace(-math.pi,math.pi,N)
 # Delta=2*math.pi/N
 KX,KY=np.meshgrid(kx,ky)
-A3=1
+A3=-4
 Berry0=np.zeros((len(kx),len(ky)))
 Berry1=np.zeros((len(kx),len(ky)))
 Berry2=np.zeros((len(kx),len(ky)))

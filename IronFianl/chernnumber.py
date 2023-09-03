@@ -2,13 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import time
-
+import multiprocessing
 
 
 M0=25
 B3=-10
 B=25
-A=2
+A=4
 SOC=30
 
 def H(kx,ky,A3):
@@ -55,71 +55,60 @@ def diffy(kx,ky,A3):
 # print(diffx(0,0))
 #print(np.dot(sta0,np.dot(diffx(0,0),sta0)))
 # print(np.conjugate(sta0))
-N=200
+N=400
 kx=np.linspace(-math.pi,math.pi,N)
 ky=np.linspace(-math.pi,math.pi,N)
 Delta=2*math.pi/N
-chern_1=0
-chern_2=0
-chern_3=0
-A3=np.linspace(-12.5,12.5,2)
-chern_change=np.zeros((len(A3),3))
-start=time.time()
-for k in range(len(A3)):
+
+
+def cal_chern(A3):
+    chern_change = np.zeros((1, 3))
     chern_1 = 0
     chern_2 = 0
     chern_3 = 0
     for i in range(len(kx)-1):
          for j in range(len(ky)-1):
-            eng0,eng1,eng2,sta0,sta1,sta2=calate(kx[i]+Delta/2,ky[j]+Delta/2,A3[k])
-            partial01x=np.dot(sta0.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,A3[k]),sta1))*np.dot(sta1.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,A3[k]),sta0))
-            partial01y=np.dot(sta0.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,A3[k]),sta1))*np.dot(sta1.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,A3[k]),sta0))
-            partial02x=np.dot(sta0.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,A3[k]),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,A3[k]),sta0))
-            partial02y=np.dot(sta0.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,A3[k]),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,A3[k]),sta0))
+            eng0,eng1,eng2,sta0,sta1,sta2=calate(kx[i]+Delta/2,ky[j]+Delta/2,A3)
+            partial01x=np.dot(sta0.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,A3),sta1))*np.dot(sta1.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,A3),sta0))
+            partial01y=np.dot(sta0.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,A3),sta1))*np.dot(sta1.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,A3),sta0))
+            partial02x=np.dot(sta0.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,A3),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,A3),sta0))
+            partial02y=np.dot(sta0.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,A3),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,A3),sta0))
             chern_1=chern_1+((partial01x-partial01y)/((eng0-eng1)**2)+(partial02x-partial02y)/((eng0-eng2)**2))*Delta**2
 
     for i in range(len(kx) - 1):
         for j in range(len(ky) - 1):
-            eng0, eng1, eng2, sta0, sta1, sta2 = calate(kx[i]+Delta/2,ky[j]+Delta/2,A3[k])
-            partial10x = np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta1))
-            partial10y = np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta1))
-            partial12x = np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta2)) * np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta1))
-            partial12y = np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta2)) * np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta1))
+            eng0, eng1, eng2, sta0, sta1, sta2 = calate(kx[i]+Delta/2,ky[j]+Delta/2,A3)
+            partial10x = np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta1))
+            partial10y = np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta1))
+            partial12x = np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta2)) * np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta1))
+            partial12y = np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta2)) * np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta1))
             chern_2 = chern_2 + ((partial10x - partial10y) / ((eng1 - eng0) ** 2) + (partial12x - partial12y)/((eng1 - eng2) ** 2))*Delta**2
-
 
     for i in range(len(kx) - 1):
         for j in range(len(ky) - 1):
-            eng0, eng1, eng2, sta0, sta1, sta2 = calate(kx[i]+Delta/2, ky[j]+Delta/2,A3[k])
-            partial20x = np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta2))
-            partial20y = np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta2))
-            partial21x = np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta1)) * np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta2))
-            partial21y = np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta1)) * np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3[k]), sta2))
+            eng0, eng1, eng2, sta0, sta1, sta2 = calate(kx[i]+Delta/2, ky[j]+Delta/2,A3)
+            partial20x = np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta2))
+            partial20y = np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta2))
+            partial21x = np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta1)) * np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta2))
+            partial21y = np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta1)) * np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,A3), sta2))
             chern_3 = chern_3 + ((partial20x - partial20y) / ((eng2 - eng0) ** 2) + (partial21x - partial21y)/((eng2 - eng1) ** 2))*Delta**2
-    chern_change[k, 0] = (1j * chern_1 / (2 * math.pi)).real
-    chern_change[k, 1] = (1j * chern_2 / (2 * math.pi)).real
-    chern_change[k, 2] = (1j * chern_3 / (2 * math.pi)).real
-print(chern_change)
-print(A3)
-# np.save('chernnum.npy',chern_change)
-# plt.scatter(SOC, chern_change[:, 0], label='chern_1')
-# plt.scatter(SOC, chern_change[:, 1], label='chern_2')
-# plt.scatter(SOC, chern_change[:, 2], label='chern_3')
-# plt.show()
-# end=time.time()
-# print(end-start)
-# print("最下面能带的陈数为",1j*chern_1/(2*math.pi))
-# print("中间能带的陈数为",1j*chern_2/(2*math.pi))
-# print("最上面能带的陈数为",1j*chern_3/(2*math.pi))
-# ks=np.linspace(-math.pi,math.pi,100)
-# Eng1=cal1(ks)
+    chern_change[0,0] = (1j * chern_1 / (2 * math.pi)).real
+    chern_change[0,1] = (1j * chern_2 / (2 * math.pi)).real
+    chern_change[0,2] = (1j * chern_3 / (2 * math.pi)).real
+    return chern_change
 
-# A=np.array([[1,2,3],[2,3,3],[3,4,3]])
-# B=np.array([1j,2*1j,3*1j])
-# C=np.array([1,2,3])
-# print(np.dot(A,B))
-# print(np.dot(np.dot(B.conj().transpose(),A),C))
-# print(2**2)
-# print(kx)
-#plt.plot(ks,Eng1)
-#plt.show()
+
+def main():
+    start=time.time()
+    A3=np.linspace(-4,4,150)
+    num_processes = multiprocessing.cpu_count()  # 使用可用的CPU核心数
+    print(num_processes)
+    with multiprocessing.Pool(num_processes) as pool:
+        chern = pool.map(cal_chern, A3)
+    np.save('chernnumber.npy',chern)
+    end=time.time()
+    print(end-start)
+
+if __name__ == '__main__':
+    main()
+end=time.time()

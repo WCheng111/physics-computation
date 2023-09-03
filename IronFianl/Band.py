@@ -8,7 +8,7 @@ import time
 M0=25
 B3=-10
 B=25
-A=2
+A=4
 SOC=30
 
 def H(kx,ky,SOC):
