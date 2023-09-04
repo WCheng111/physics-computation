@@ -8,7 +8,7 @@ M0=25
 B3=-10
 B=25
 A=4
-SOC=0.01
+SOC=10
 
 def H(kx,ky,A3):
     H=np.array([[M0+2*B3*(1-math.cos(kx))+2*B*(1-math.cos(ky)), -A*(math.sin(kx)-1j*math.sin(ky)), -A3*math.sin(kx)+1j*A*math.sin(ky)],
