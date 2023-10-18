@@ -10,7 +10,7 @@
 #  - Application of all the aspects of tutorials 1-3 to a more complicated
 #    lattice, namely graphene
 
-from __future__ import division  # so that 1/2 == 0.5, and not 0
+ # so that 1/2 == 0.5, and not 0
 from math import pi, sqrt, tanh
 
 import kwant

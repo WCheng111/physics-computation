@@ -7,9 +7,9 @@ import time
 
 M0=25
 B3=-10
-B=25
+B=10
 A=4
-SOC=30
+SOC=0
 
 def H(kx,ky,SOC):
     H=np.array([[M0+2*B3*(1-math.cos(kx))+2*B*(1-math.cos(ky)), -A*(math.sin(kx)-1j*math.sin(ky)), -A*(math.sin(kx)-1j*math.sin(ky))],
@@ -47,9 +47,9 @@ Ex=np.zeros((len(kxx),3))
 for i in range(len(kxx)):
     Ex[i,:]=calate(kxx[i],0,SOC)[0:3]
 for i in range(len(kx)):
-    E[i,:]=calate(math.pi-kx[i],math.pi-kx[i],SOC)[0:3]
+    E[i,:]=calate(math.pi,math.pi-kx[i],SOC)[0:3]
 for i in range(len(kx)):
-    E[i+len(kx),:]=calate(kx[i],0,SOC)[0:3]
+    E[i+len(kx),:]=calate(math.pi-kx[i],0,SOC)[0:3]
 
 x=np.linspace(-1,1,2*len(kx))*math.pi
 plt.plot(x,E[:,0],label='band1',color='black')
