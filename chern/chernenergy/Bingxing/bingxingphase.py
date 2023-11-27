@@ -13,7 +13,7 @@ B32=5
 B2=-80
 A1=5
 A2=50
-SOC=0.01
+SOC=10
 
 def H(kx,ky,SOC):
     H=np.array([[M01+2*B31*(1-math.cos(kx))+2*B1*(1-math.cos(ky)), -A1*math.sin(kx)+A2*1j*math.sin(ky), A1*math.sin(kx)+A2*1j*math.sin(ky)],
@@ -103,7 +103,7 @@ def main():
     print(num_processes)
     with multiprocessing.Pool(num_processes) as pool:
         Berryphaseen = pool.map(Berryphase, energy)
-    np.save('Berryphase(A3=-A,soc=0.01correct).npy',Berryphaseen)
+    np.save('Berryphase(A3=-A,soc=10correct).npy',Berryphaseen)
     end=time.time()
     plt.plot(energy,Berryphaseen)
     plt.show()
