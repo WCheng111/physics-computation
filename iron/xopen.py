@@ -133,9 +133,9 @@ def make_system_SM():
     return system
 
 
-M00 = 1
-M01 = -1
-M02 = 0.5
+M00 = 50
+M01 = 80
+M02 = -25
 A1 = 0.5
 A2 = 0.5
 B1 = 5
