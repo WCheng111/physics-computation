@@ -15,10 +15,10 @@ A1=5
 A2=50
 SOC=30
 
-def H(kx,ky,SOC):
-    H=np.array([[M01+2*B31*(1-math.cos(kx))+2*B1*(1-math.cos(ky)), -A1*math.sin(kx)+A2*1j*math.sin(ky), -A1*math.sin(kx)+A2*1j*math.sin(ky)],
-               [-A1*math.sin(kx)-A2*1j*math.sin(ky),(M02+2*B32*(1-math.cos(kx))+2*B2*(1-math.cos(ky))), 0],
-                [-A1*math.sin(kx)-A2*1j*math.sin(ky), 0,(M02+2*B32*(1-math.cos(kx))+2*B2*(1-math.cos(ky)))+SOC]])
+def H(kz,ky,SOC):
+    H=np.array([[M01+2*B31*(1-math.cos(kz))+2*B1*(1-math.cos(ky)), A1*math.sin(kz)+A2*1j*math.sin(ky), A1*math.sin(kz)+A2*1j*math.sin(ky)],
+               [A1*math.sin(kz)-A2*1j*math.sin(ky),(M02+2*B32*(1-math.cos(kz))+2*B2*(1-math.cos(ky)))-SOC/2, 0],
+                [A1*math.sin(kz)-A2*1j*math.sin(ky), 0,(M02+2*B32*(1-math.cos(kz))+2*B2*(1-math.cos(ky)))+SOC/2]])
     return H
 
 # def cal1(ks1,SOC):
