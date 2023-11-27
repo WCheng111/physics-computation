@@ -13,7 +13,7 @@ B32=5
 B2=-80
 A1=5
 A2=50
-SOC=30
+SOC=0.01
 
 def H(kz,ky,SOC):
     H=np.array([[M01+2*B31*(1-math.cos(kz))+2*B1*(1-math.cos(ky)), A1*math.sin(kz)+A2*1j*math.sin(ky), A1*math.sin(kz)+A2*1j*math.sin(ky)],
@@ -57,9 +57,9 @@ plt.plot(kx,E[:,2],label='band3',color='black')
 plt.axvline(0, color='k', linestyle='--',)
 plt.axvline(-1, color='k', linestyle='--',)
 plt.axvline(1, color='k', linestyle='--',)
-plt.text(0,-100, r'$Z$',size=20)
-plt.text(1,-100, r'$\Gamma$',size=20)
-plt.text(-1,-100, r'$Y$',size=20)
+plt.text(0,-120, r'$Z$',size=20)
+plt.text(1,-120, r'$\Gamma$',size=20)
+plt.text(-1,-120, r'$Y‘$',size=20)
 plt.ylim(-100,100)
 plt.xticks([])
 # plt.xlabel('kz')
