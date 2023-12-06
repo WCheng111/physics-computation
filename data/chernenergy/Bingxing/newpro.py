@@ -13,12 +13,12 @@ B32=5
 B2=-80
 A1=5
 A2=50
-SOC=10
+SOC=40
 
 def H(kx,ky,SOC):
-    H=np.array([[M01+2*B31*(1-math.cos(kx))+2*B1*(1-math.cos(ky)), A1*math.sin(kx)+A2*1j*math.sin(ky), A1*math.sin(kx)+A2*1j*math.sin(ky)],
+    H=np.array([[M01+2*B31*(1-math.cos(kx))+2*B1*(1-math.cos(ky)), A1*math.sin(kx)+A2*1j*math.sin(ky), -A1*math.sin(kx)+A2*1j*math.sin(ky)],
                [A1*math.sin(kx)-A2*1j*math.sin(ky),(M02+2*B32*(1-math.cos(kx))+2*B2*(1-math.cos(ky)))-SOC/2, 0],
-                [A1*math.sin(kx)-A2*1j*math.sin(ky), 0,(M02+2*B32*(1-math.cos(kx))+2*B2*(1-math.cos(ky)))+SOC/2]])
+                [-A1*math.sin(kx)-A2*1j*math.sin(ky), 0,(M02+2*B32*(1-math.cos(kx))+2*B2*(1-math.cos(ky)))+SOC/2]])
     return H
 
 
@@ -51,9 +51,9 @@ def stepfunction(eng,mu):
         return 0
 
 def diffx(kx,ky,SOC):
-    diffx=np.array([[2*B31*math.sin(kx), A1*math.cos(kx), A1*math.cos(kx)],
+    diffx=np.array([[2*B31*math.sin(kx), A1*math.cos(kx), -A1*math.cos(kx)],
                [A1*math.cos(kx),2*B32*math.sin(kx), 0],
-                [A1*math.cos(kx), 0,2*B32*math.sin(kx)]])
+                [-A1*math.cos(kx), 0,2*B32*math.sin(kx)]])
     return diffx
 def diffy(kx,ky,SOC):
     diffy=np.array([[2*B1*math.sin(ky), A2*1j*math.cos(ky), A2*1j*math.cos(ky)],
@@ -65,7 +65,7 @@ def diffy(kx,ky,SOC):
 # print(np.conjugate(sta0))
 
 def Berryphase(ener):
-    N=500
+    N=400
     kx=np.linspace(-math.pi,math.pi,N)
     ky=np.linspace(-math.pi,math.pi,N)
     Delta=2*math.pi/N
@@ -103,7 +103,7 @@ def main():
     print(num_processes)
     with multiprocessing.Pool(num_processes) as pool:
         Berryphaseen = pool.map(Berryphase, energy)
-    np.save('Berryphase(A3=A,soc=10,murange=-25__25,integratepoint=500).npy',Berryphaseen)
+    np.save('Berryphase(A3=-A,soc=40,integrate=400,mu=-25__25,).npy',Berryphaseen)
     end=time.time()
     plt.plot(energy,Berryphaseen)
     plt.show()

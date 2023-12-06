@@ -8,11 +8,11 @@ from matplotlib.colors import Normalize
 M01=50
 B31=-25
 B1=80
-M02=-10
-B32=5
-B2=-80
+M02=-50
+B32=25
+B2=-25
 A1=5
-A2=50
+A2=5
 SOC=30
 
 def H(kx,ky,SOC):
@@ -76,11 +76,11 @@ for k, SOC in enumerate(SOCl):
     for i in range(len(kx)):
          for j in range(len(ky)):
             eng0,eng1,eng2,sta0,sta1,sta2=calate(kx[i],ky[j],SOC)
-            partial01x=np.dot(sta1.transpose().conj(),np.dot(diffx(kx[i],ky[j],SOC),sta0))*np.dot(sta0.transpose().conj(),np.dot(diffy(kx[i],ky[j],SOC),sta1))
-            partial01y=np.dot(sta1.transpose().conj(),np.dot(diffy(kx[i],ky[j],SOC),sta0))*np.dot(sta0.transpose().conj(),np.dot(diffx(kx[i],ky[j],SOC),sta1))
-            partial02x=np.dot(sta1.transpose().conj(),np.dot(diffx(kx[i],ky[j],SOC),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffy(kx[i],ky[j],SOC),sta1))
-            partial02y=np.dot(sta1.transpose().conj(),np.dot(diffy(kx[i],ky[j],SOC),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffx(kx[i],ky[j],SOC),sta1))
-            Berry[i,j]=-(1j*((partial01x-partial01y)/((eng1-eng0)**2)+(partial02x-partial02y)/((eng1-eng2)**2))).real
+            partial01x=np.dot(sta0.transpose().conj(),np.dot(diffx(kx[i],ky[j],SOC),sta1))*np.dot(sta1.transpose().conj(),np.dot(diffy(kx[i],ky[j],SOC),sta0))
+            partial01y=np.dot(sta0.transpose().conj(),np.dot(diffy(kx[i],ky[j],SOC),sta1))*np.dot(sta1.transpose().conj(),np.dot(diffx(kx[i],ky[j],SOC),sta0))
+            partial02x=np.dot(sta0.transpose().conj(),np.dot(diffx(kx[i],ky[j],SOC),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffy(kx[i],ky[j],SOC),sta0))
+            partial02y=np.dot(sta0.transpose().conj(),np.dot(diffy(kx[i],ky[j],SOC),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffx(kx[i],ky[j],SOC),sta0))
+            Berry[i,j]=-(1j*((partial01x-partial01y)/((eng1-eng0)**2)+(partial02x-partial02y)/((eng0-eng2)**2))).real
     im = axs[k].imshow(Berry, extent=(-math.pi, math.pi, -math.pi, math.pi),cmap='coolwarm',vmin=-10,vmax=10)
     axs[k].set_title(f'SOC = {SOC}meV')
     fig.colorbar(im, ax=axs[k])

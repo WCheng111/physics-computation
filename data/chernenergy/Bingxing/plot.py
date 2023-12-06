@@ -19,19 +19,30 @@ chern_change6=np.load('Berryphase(A3=-A,soc=40).npy')
 
 
 
-chern_change=np.load('Berryphase(A3=A,soc=10,murange=-25__25,integratepoint=500).npy')
+chern_change=np.load('Berryphase(A3=-A,soc=40,integrate=400,mu=-25__25,).npy')
 sorted_indices = np.argsort(np.abs(chern_change-0.5))[:4]
-print(sorted_indices)
-
+sorted_indices2=np.argsort(np.abs(chern_change+0.5))[:3]
 mu=np.linspace(-25,25,len(chern_change))
+print(sorted_indices)
+for i in range(len(sorted_indices)):
+    print(mu[sorted_indices[i]])
+for i in range(len(sorted_indices2)):
+    print(mu[sorted_indices2[i]])
+# mu=np.linspace(-30,30,len(chern_change))
 plt.plot(mu,2*chern_change)
 print(chern_change)
 plt.axvline(mu[sorted_indices[0]],color='k', linestyle='--',label='x=1')
 plt.axvline(mu[sorted_indices[1]],color='k', linestyle='--')
-plt.text(round(mu[sorted_indices[0]],1), 1.2,round(mu[sorted_indices[0]],1), rotation=0, color='black',fontsize=15)
-plt.text(round(mu[sorted_indices[1]],1)-8, 1.2,round(mu[sorted_indices[1]],1), rotation=0, color='black',fontsize=15)
+# plt.axvline(mu[sorted_indices[2]],color='k', linestyle='--')
+# plt.axvline(mu[sorted_indices[4]],color='k', linestyle='--')
+plt.axvline(mu[sorted_indices2[0]],color='k', linestyle='--',label='x=1')
+plt.axvline(mu[sorted_indices2[2]],color='k', linestyle='--')
+# plt.axvline(mu[sorted_indices[2]],color='k', linestyle='--')
+# plt.axvline(mu[sorted_indices[4]],color='k', linestyle='--')
+# plt.text(round(mu[sorted_indices[0]],1), 1.2,round(mu[sorted_indices[0]],1), rotation=0, color='black',fontsize=15)
+# plt.text(round(mu[sorted_indices[1]],1)-8, 1.2,round(mu[sorted_indices[1]],1), rotation=0, color='black',fontsize=15)
 print(mu[sorted_indices[0]],mu[sorted_indices[1]])
-plt.title("SOC=10,Integrate=500")
+plt.title("SOC=40,Integrate=400")
 plt.axhline(1, color='k', linestyle='--')
 plt.axhline(-1, color='k', linestyle='--')
 plt.xlabel(r'$\mu$')

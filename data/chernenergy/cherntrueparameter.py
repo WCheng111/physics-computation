@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import time
-import multiprocessing
+
 
 
 M01=50
@@ -16,9 +16,9 @@ A2=50
 SOC=10
 
 def H(kx,ky,SOC):
-    H=np.array([[M01+2*B31*(1-math.cos(kx))+2*B1*(1-math.cos(ky)), A1*math.sin(kx)+A2*1j*math.sin(ky), A1*math.sin(kx)+A2*1j*math.sin(ky)],
-               [A1*math.sin(kx)-A2*1j*math.sin(ky),(M02+2*B32*(1-math.cos(kx))+2*B2*(1-math.cos(ky)))-SOC/2, 0],
-                [A1*math.sin(kx)-A2*1j*math.sin(ky), 0,(M02+2*B32*(1-math.cos(kx))+2*B2*(1-math.cos(ky)))+SOC/2]])
+    H=np.array([[M01+2*B31*(1-math.cos(kx))+2*B1*(1-math.cos(ky)), -A1*math.sin(kx)+A2*1j*math.sin(ky), A1*math.sin(kx)+A2*1j*math.sin(ky)],
+               [-A1*math.sin(kx)-A2*1j*math.sin(ky),-(M02+2*B32*(1-math.cos(kx))+2*B2*(1-math.cos(ky))), 0],
+                [A1*math.sin(kx)-A2*1j*math.sin(ky), 0,-(M02+2*B32*(1-math.cos(kx))+2*B2*(1-math.cos(ky)))+SOC]])
     return H
 
 
@@ -51,24 +51,30 @@ def stepfunction(eng,mu):
         return 0
 
 def diffx(kx,ky,SOC):
-    diffx=np.array([[2*B31*math.sin(kx), A1*math.cos(kx), A1*math.cos(kx)],
-               [A1*math.cos(kx),2*B32*math.sin(kx), 0],
-                [A1*math.cos(kx), 0,2*B32*math.sin(kx)]])
+    diffx=np.array([[2*B31*math.sin(kx), -A1*math.cos(kx), -A1*math.cos(kx)],
+               [-A1*math.cos(kx),-2*B32*math.sin(kx), 0],
+                [-A1*math.cos(kx), 0,-2*B32*math.sin(kx)]])
     return diffx
 def diffy(kx,ky,SOC):
     diffy=np.array([[2*B1*math.sin(ky), A2*1j*math.cos(ky), A2*1j*math.cos(ky)],
-               [-A2*1j*math.cos(ky),2*B2*math.sin(ky), 0],
-                [-A2*1j*math.cos(ky), 0,2*B2*math.sin(ky)]])
+               [-A2*1j*math.cos(ky),-2*B2*math.sin(ky), 0],
+                [-A2*1j*math.cos(ky), 0,-2*B2*math.sin(ky)]])
     return diffy
 # print(diffx(0,0))
 #print(np.dot(sta0,np.dot(diffx(0,0),sta0)))
 # print(np.conjugate(sta0))
+N=300
+kx=np.linspace(-math.pi,math.pi,N)
+ky=np.linspace(-math.pi,math.pi,N)
+Delta=2*math.pi/N
+mu=np.linspace(-60,60,30)
+chern_1=0
+chern_2=0
+chern_3=0
 
-def Berryphase(ener):
-    N=500
-    kx=np.linspace(-math.pi,math.pi,N)
-    ky=np.linspace(-math.pi,math.pi,N)
-    Delta=2*math.pi/N
+chern_change=np.zeros((len(mu)))
+start=time.time()
+for k in range(len(mu)):
     chern_1 = 0
     chern_2 = 0
     chern_3 = 0
@@ -79,55 +85,28 @@ def Berryphase(ener):
             partial01y=np.dot(sta0.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,SOC),sta1))*np.dot(sta1.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,SOC),sta0))
             partial02x=np.dot(sta0.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,SOC),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,SOC),sta0))
             partial02y=np.dot(sta0.transpose().conj(),np.dot(diffy(kx[i]+Delta/2,ky[j]+Delta/2,SOC),sta2))*np.dot(sta2.transpose().conj(),np.dot(diffx(kx[i]+Delta/2,ky[j]+Delta/2,SOC),sta0))
-            chern_1=chern_1+((partial01x-partial01y)/((eng0-eng1)**2)+(partial02x-partial02y)/((eng0-eng2)**2))*Delta**2*stepfunction(eng0,ener)
+            chern_1=chern_1+((partial01x-partial01y)/((eng0-eng1)**2)+(partial02x-partial02y)/((eng0-eng2)**2))*Delta**2*stepfunction(eng0,mu[k])
 
             partial10x = np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1))
             partial10y = np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1))
             partial12x = np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2)) * np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1))
             partial12y = np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2)) * np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1))
-            chern_2 = chern_2 + ((partial10x - partial10y) / ((eng1 - eng0) ** 2) + (partial12x - partial12y)/((eng1 - eng2) ** 2))*Delta**2*stepfunction(eng1,ener)
+            chern_2 = chern_2 + ((partial10x - partial10y) / ((eng1 - eng0) ** 2) + (partial12x - partial12y)/((eng1 - eng2) ** 2))*Delta**2*stepfunction(eng1,mu[k])
 
 
             partial20x = np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2))
             partial20y = np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2))
             partial21x = np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1)) * np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2))
             partial21y = np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1)) * np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2))
-            chern_3 = chern_3 + ((partial20x - partial20y) / ((eng2 - eng0) ** 2) + (partial21x - partial21y)/((eng2 - eng1) ** 2))*Delta**2*stepfunction(eng2,ener)
-    chern_change=-(1j * chern_1 / (2 * math.pi)).real-(1j * chern_2 / (2 * math.pi)).real-(1j * chern_3 / (2 * math.pi)).real
-    return chern_change
+            chern_3 = chern_3 + ((partial20x - partial20y) / ((eng2 - eng0) ** 2) + (partial21x - partial21y)/((eng2 - eng1) ** 2))*Delta**2*stepfunction(eng2,mu[k])
+    chern_change[k]=(1j * chern_1 / (2 * math.pi)).real+(1j * chern_2 / (2 * math.pi)).real+(1j * chern_3 / (2 * math.pi)).real
 
-def main():
-    stat=time.time()
-    energy=np.linspace(-25,25,101)
-    num_processes = multiprocessing.cpu_count()
-    print(num_processes)
-    with multiprocessing.Pool(num_processes) as pool:
-        Berryphaseen = pool.map(Berryphase, energy)
-    np.save('Berryphase(A3=A,soc=10,murange=-25__25,integratepoint=500).npy',Berryphaseen)
-    end=time.time()
-    plt.plot(energy,Berryphaseen)
-    plt.show()
-    print(end-stat)
-    print(Berryphaseen)
-
-if __name__ == '__main__':
-    main()
-# start=time.time()
-# print(Berryphase(0))
-# end=time.time()
-# print(end-start)
-
-
-
-
-
-
-# end=time.time()
-# print(chern_change)
-# np.save('../chernchange6(60,soc=30,A3=-A).npy', chern_change)
-# plt.plot(mu,chern_change)
-# plt.show()
-# print("The cost time is",end-start)
+end=time.time()
+print(chern_change)
+np.save('chernchange6(60,soc=10,A3=-A).npy',chern_change)
+plt.plot(mu,chern_change)
+plt.show()
+print("The cost time is",end-start)
 # np.save('chernnum.npy',chern_change)
 # plt.scatter(SOC, chern_change[:, 0], label='chern_1')
 # plt.scatter(SOC, chern_change[:, 1], label='chern_2')

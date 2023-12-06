@@ -5,12 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c386f056-46e6-4da2-b7dc-04b312d9aab7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/chern/chernenergy/Berrycurvature/A3=-A.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chern/chernenergy/Berrycurvature/A3=A.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/physics-computation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/physics-computation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/BandYgammatrue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Berrycurvature/A3=-A.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Berrycurvature/A3=0.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Berrycurvature/A3=A.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=0.01).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=1).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=10).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=10,integrate=400,mu=-25__25,).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=10,integrate=500,mu=-25__25,).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=15).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=18).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=20).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=40).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=40,integrate=400,mu=-25__25,).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=40,integrate=500,mu=-25__25,).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=-A,soc=5).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=A,soc=0.01).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=A,soc=10).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=A,soc=10,murange=-25__25,integratepoint=400).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=A,soc=10,murange=-25__25,integratepoint=500).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=A,soc=20).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=A,soc=30).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=A,soc=40).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=A,soc=40,murange=-30__30,integratepoint=400).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/Berryphase(A3=A,soc=40,murange=-30__30,integratepoint=500).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/bingxingphase(A3=-).py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/bingxingphase.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/data1/Berryphase(A3=-A,soc=0.01).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/data1/Berryphase(A3=-A,soc=0.01correct).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/data1/Berryphase(A3=-A,soc=10).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/data1/Berryphase(A3=-A,soc=10correct).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/data1/Berryphase(A3=-A,soc=30).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/data2/Berryphase(A3=-A,soc=0.01).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/data2/Berryphase(A3=-A,soc=10).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/newpro.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/plot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/Bingxing/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/band.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/bandY-Z-gamma.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange2.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange3.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange4.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange5.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange6(40).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange6(60).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange6(60,soc=10).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange6(60,soc=10,A3=-A).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/chernchange6(60,soc=30,A3=-A).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/cherntrueparameter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/plot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/singlebandcalu/A3=A.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/chernenergy/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nu/chern/chernenergy/Bingxing/Berryphase(A3=A,soc=10,murange=-25__25,integratepoint=400).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nu/chern/chernenergy/Bingxing/Berryphase(A3=A,soc=10,murange=-25__25,integratepoint=500).npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nu/chern/chernenergy/Bingxing/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chern/chernenergy/BandYgammatrue.py" beforeDir="false" afterPath="$PROJECT_DIR$/chern/chernenergy/BandYgammatrue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nu/chern/chernenergy/Berrycurvature/A3=-A.py" beforeDir="false" afterPath="$PROJECT_DIR$/nu/chern/chernenergy/Berrycurvature/A3=-A.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nu/chern/chernenergy/Berrycurvature/A3=A.py" beforeDir="false" afterPath="$PROJECT_DIR$/nu/chern/chernenergy/Berrycurvature/A3=A.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nu/chern/chernenergy/Bingxing/bingxingphase.py" beforeDir="false" afterPath="$PROJECT_DIR$/nu/chern/chernenergy/Bingxing/bingxingphase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nu/chern/chernenergy/Bingxing/plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/nu/chern/chernenergy/Bingxing/plot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nu/chern/chernenergy/band.py" beforeDir="false" afterPath="$PROJECT_DIR$/nu/chern/chernenergy/band.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,29 +91,29 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2MSeNaKjVIi1TBQf0Vpi9jWa1qB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "F:/Github/physics-computation",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Github/physics-computation&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="band" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="physics-computation" />
@@ -151,6 +208,11 @@
       <workItem from="1693749233192" duration="6822000" />
       <workItem from="1701097134788" duration="3634000" />
       <workItem from="1701101662335" duration="3962000" />
+      <workItem from="1701572336044" duration="1795000" />
+      <workItem from="1701602671827" duration="766000" />
+      <workItem from="1701604755765" duration="25000" />
+      <workItem from="1701604809853" duration="32000" />
+      <workItem from="1701826261744" duration="505000" />
     </task>
     <servers />
   </component>
@@ -186,25 +248,25 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/physics_computation$chernnumber.coverage" NAME="chernnumber Coverage Results" MODIFIED="1693754225208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IronFianl" />
+    <SUITE FILE_PATH="coverage/physics_computation$BandYgammatrue.coverage" NAME="BandYgammatrue 覆盖结果" MODIFIED="1701572863720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/chernenergy" />
+    <SUITE FILE_PATH="coverage/physics_computation$chern_.coverage" NAME="chern+ Coverage Results" MODIFIED="1692199578111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern" />
+    <SUITE FILE_PATH="coverage/physics_computation$tbcorre.coverage" NAME="tbcorre Coverage Results" MODIFIED="1689143312231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kagome" />
+    <SUITE FILE_PATH="coverage/physics_computation$band1.coverage" NAME="band1 Coverage Results" MODIFIED="1692195816575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/iron" />
+    <SUITE FILE_PATH="coverage/physics_computation$Band.coverage" NAME="Band Coverage Results" MODIFIED="1693753468940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IronFianl" />
+    <SUITE FILE_PATH="coverage/physics_computation$A3_A.coverage" NAME="A3=A Coverage Results" MODIFIED="1701105349015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern/chernenergy/Berrycurvature" />
+    <SUITE FILE_PATH="coverage/physics_computation$band.coverage" NAME="band 覆盖结果" MODIFIED="1701826311271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/iron" />
+    <SUITE FILE_PATH="coverage/physics_computation$kspace.coverage" NAME="kspace Coverage Results" MODIFIED="1689058464441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/s+is" />
+    <SUITE FILE_PATH="coverage/physics_computation$A3__A.coverage" NAME="A3=-A 覆盖结果" MODIFIED="1701826622564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/chernenergy/Berrycurvature" />
+    <SUITE FILE_PATH="coverage/physics_computation$change.coverage" NAME="change Coverage Results" MODIFIED="1692192976910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/iron" />
+    <SUITE FILE_PATH="coverage/physics_computation$bingxingphase_A3___.coverage" NAME="bingxingphase(A3=-) Coverage Results" MODIFIED="1701101131594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern/chernenergy/Bingxing" />
     <SUITE FILE_PATH="coverage/physics_computation$chernkubo.coverage" NAME="chernkubo Coverage Results" MODIFIED="1692199195244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern" />
     <SUITE FILE_PATH="coverage/physics_computation$ploty.coverage" NAME="ploty Coverage Results" MODIFIED="1692204761894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern" />
-    <SUITE FILE_PATH="coverage/physics_computation$kspace.coverage" NAME="kspace Coverage Results" MODIFIED="1689058464441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/s+is" />
-    <SUITE FILE_PATH="coverage/physics_computation$band.coverage" NAME="band Coverage Results" MODIFIED="1701101979205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern" />
-    <SUITE FILE_PATH="coverage/physics_computation$Band.coverage" NAME="Band Coverage Results" MODIFIED="1693753468940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IronFianl" />
-    <SUITE FILE_PATH="coverage/physics_computation$band1.coverage" NAME="band1 Coverage Results" MODIFIED="1692195816575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/iron" />
-    <SUITE FILE_PATH="coverage/physics_computation$A3__A.coverage" NAME="A3=-A Coverage Results" MODIFIED="1701105264888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern/chernenergy/Berrycurvature" />
-    <SUITE FILE_PATH="coverage/physics_computation$change.coverage" NAME="change Coverage Results" MODIFIED="1692192976910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/iron" />
-    <SUITE FILE_PATH="coverage/physics_computation$A3_A.coverage" NAME="A3=A Coverage Results" MODIFIED="1701105349015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern/chernenergy/Berrycurvature" />
-    <SUITE FILE_PATH="coverage/physics_computation$bingxingphase_A3___.coverage" NAME="bingxingphase(A3=-) Coverage Results" MODIFIED="1701101131594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern/chernenergy/Bingxing" />
-    <SUITE FILE_PATH="coverage/physics_computation$tbcorre.coverage" NAME="tbcorre Coverage Results" MODIFIED="1689143312231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kagome" />
     <SUITE FILE_PATH="coverage/physics_computation$bingxingphase.coverage" NAME="bingxingphase Coverage Results" MODIFIED="1701100875676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern/chernenergy/Bingxing" />
-    <SUITE FILE_PATH="coverage/physics_computation$pertua.coverage" NAME="pertua Coverage Results" MODIFIED="1689338902385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/iron vortex" />
-    <SUITE FILE_PATH="coverage/physics_computation$ALLband.coverage" NAME="ALLband Coverage Results" MODIFIED="1692192991184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/iron" />
-    <SUITE FILE_PATH="coverage/physics_computation$Berrycurvature.coverage" NAME="Berrycurvature Coverage Results" MODIFIED="1701103586679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern" />
     <SUITE FILE_PATH="coverage/physics_computation$tbnew.coverage" NAME="tbnew Coverage Results" MODIFIED="1689143303267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kagome" />
+    <SUITE FILE_PATH="coverage/physics_computation$Berrycurvature.coverage" NAME="Berrycurvature Coverage Results" MODIFIED="1701103586679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern" />
+    <SUITE FILE_PATH="coverage/physics_computation$ALLband.coverage" NAME="ALLband Coverage Results" MODIFIED="1692192991184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/iron" />
     <SUITE FILE_PATH="coverage/physics_computation$test.coverage" NAME="test Coverage Results" MODIFIED="1693755997971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IronFianl" />
-    <SUITE FILE_PATH="coverage/physics_computation$chernnumber.coverage" NAME="chernnumber Coverage Results" MODIFIED="1693754225208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IronFianl" />
-    <SUITE FILE_PATH="coverage/physics_computation$chern_.coverage" NAME="chern+ Coverage Results" MODIFIED="1692199578111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern" />
-    <SUITE FILE_PATH="coverage/physics_computation$BandYgammatrue.coverage" NAME="BandYgammatrue Coverage Results" MODIFIED="1701102763564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chern/chernenergy" />
+    <SUITE FILE_PATH="coverage/physics_computation$pertua.coverage" NAME="pertua Coverage Results" MODIFIED="1689338902385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/iron vortex" />
   </component>
 </project>

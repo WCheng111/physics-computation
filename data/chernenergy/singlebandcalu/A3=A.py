@@ -13,7 +13,7 @@ B32=5
 B2=-80
 A1=5
 A2=50
-SOC=10
+SOC=40
 
 def H(kx,ky,SOC):
     H=np.array([[M01+2*B31*(1-math.cos(kx))+2*B1*(1-math.cos(ky)), A1*math.sin(kx)+A2*1j*math.sin(ky), A1*math.sin(kx)+A2*1j*math.sin(ky)],
@@ -65,7 +65,7 @@ def diffy(kx,ky,SOC):
 # print(np.conjugate(sta0))
 
 def Berryphase(ener):
-    N=500
+    N=400
     kx=np.linspace(-math.pi,math.pi,N)
     ky=np.linspace(-math.pi,math.pi,N)
     Delta=2*math.pi/N
@@ -85,25 +85,25 @@ def Berryphase(ener):
             partial10y = np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1))
             partial12x = np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2)) * np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1))
             partial12y = np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2)) * np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1))
-            chern_2 = chern_2 + ((partial10x - partial10y) / ((eng1 - eng0) ** 2) + (partial12x - partial12y)/((eng1 - eng2) ** 2))*Delta**2*stepfunction(eng1,ener)
+            chern_2 = chern_2 + ((partial10x - partial10y) / ((eng1 - eng0) ** 2) + (partial12x - partial12y)/((eng1 - eng2) ** 2))*Delta**2*stepfunction(eng1,ener)*0
 
 
             partial20x = np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2))
             partial20y = np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta0)) * np.dot(sta0.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2))
             partial21x = np.dot(sta2.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1)) * np.dot(sta1.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2))
             partial21y = np.dot(sta2.transpose().conj(), np.dot(diffy(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta1)) * np.dot(sta1.transpose().conj(), np.dot(diffx(kx[i]+Delta/2, ky[j]+Delta/2,SOC), sta2))
-            chern_3 = chern_3 + ((partial20x - partial20y) / ((eng2 - eng0) ** 2) + (partial21x - partial21y)/((eng2 - eng1) ** 2))*Delta**2*stepfunction(eng2,ener)
+            chern_3 = chern_3 + ((partial20x - partial20y) / ((eng2 - eng0) ** 2) + (partial21x - partial21y)/((eng2 - eng1) ** 2))*Delta**2*stepfunction(eng2,ener)*0
     chern_change=-(1j * chern_1 / (2 * math.pi)).real-(1j * chern_2 / (2 * math.pi)).real-(1j * chern_3 / (2 * math.pi)).real
     return chern_change
 
 def main():
     stat=time.time()
-    energy=np.linspace(-25,25,101)
+    energy=np.linspace(-30,30,121)
     num_processes = multiprocessing.cpu_count()
     print(num_processes)
     with multiprocessing.Pool(num_processes) as pool:
         Berryphaseen = pool.map(Berryphase, energy)
-    np.save('Berryphase(A3=A,soc=10,murange=-25__25,integratepoint=500).npy',Berryphaseen)
+    np.save('Berryphase(A3=A,soc=40,murange=-30__30,integratepoint=400).npy',Berryphaseen)
     end=time.time()
     plt.plot(energy,Berryphaseen)
     plt.show()
